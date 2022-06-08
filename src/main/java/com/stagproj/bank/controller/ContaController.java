@@ -9,5 +9,5 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class ContaController {
     @Autowired
-    private ContaRepository _contaRepository;
+    private ContaRepository contaRepository;
 }
