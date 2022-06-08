@@ -31,5 +31,5 @@ public class Conta {
     private int tipoConta;
 
     @NonNull
-    private int dataCriacao;
+    private String dataCriacao;
 }
