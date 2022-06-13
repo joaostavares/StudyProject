@@ -34,7 +34,7 @@ public class ContaServices {
     }
 
     private LocalDateTime parseDataCriacao(JSONObject contas) {
-        var dataCriacao = (String) contas.get("endDate");
+        var dataCriacao = (String) contas.get("dataCriacao");
         return ZonedDateTime.parse(dataCriacao).toLocalDateTime();
     }
 
@@ -47,6 +47,7 @@ public class ContaServices {
         conta.setSaldo(saldo != null ? saldo : conta.getSaldo());
         conta.setLimiteSaqueDiario(limiteSaqueDiario != null ? limiteSaqueDiario : conta.getLimiteSaqueDiario());
         conta.setFlagAtivo(conta.isFlagAtivo());
+        conta.setDataCriacao(jsonConta.get("dataCriacao") != null ? String.valueOf(parseDataCriacao(jsonConta)) : conta.getDataCriacao());
         conta.setTipoConta(tipoConta != null ? Integer.valueOf(tipoConta) : conta.getTipoConta());
     }
 }
