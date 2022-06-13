@@ -1,6 +1,5 @@
 package com.stagproj.bank.entity;
 
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -8,31 +7,22 @@ import lombok.NonNull;
 
 
 
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
-
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class Conta {
+public class Pessoa {
     @Id
     @NonNull
-    private long idConta;
+    private long idPessoa;
 
-    @NonNull
-    private double saldo;
+    private String nome;
 
-    @NonNull
-    private double limiteSaqueDiario;
+    private String cpf;
 
-    @NonNull
-    private boolean flagAtivo;
-
-    @NonNull
-    private int tipoConta;
-
-    @NonNull
-    private String dataCriacao;
+    private String dataNascimento;
 }
