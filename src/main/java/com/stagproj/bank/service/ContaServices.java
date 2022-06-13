@@ -15,11 +15,6 @@ import java.util.List;
 public class ContaServices {
     private List<Conta> contas;
 
-    public void createTravelList() {
-        if(contas == null) {
-            contas = new ArrayList<>();
-        }
-    }
 
     public boolean isJSONValid(String jsonInString) {
         try {
@@ -50,4 +45,5 @@ public class ContaServices {
         conta.setDataCriacao(jsonConta.get("dataCriacao") != null ? String.valueOf(parseDataCriacao(jsonConta)) : conta.getDataCriacao());
         conta.setTipoConta(tipoConta != null ? Integer.valueOf(tipoConta) : conta.getTipoConta());
     }
+
 }
