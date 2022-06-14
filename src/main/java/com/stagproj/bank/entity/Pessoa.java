@@ -17,7 +17,7 @@ import javax.persistence.Id;
 @Entity
 public class Pessoa {
     @Id
-    @NonNull
+    //@NonNull
     private long idPessoa;
 
     private String nome;
