@@ -38,12 +38,17 @@ public class ContaController {
     public ResponseEntity<Conta> GetById(@PathVariable(value = "idConta") long idConta)
     {
         Optional<Conta> conta = contaRepository.findById(idConta);
-        return (conta.isPresent()) ? new ResponseEntity<Conta>(conta.get(), HttpStatus.OK) : new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        return conta.map(value -> new ResponseEntity<>(value, HttpStatus.OK)).orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
-    @RequestMapping(value = "/cadastro", method = RequestMethod.POST)
-    public Conta post(@Valid @RequestBody Conta conta) {
-        return contaRepository.save(conta);
+    @RequestMapping(value = "/conta", method = RequestMethod.POST)
+    public ResponseEntity<Conta> post(@Valid @RequestBody Conta conta) {
+        Optional<Conta> checagem = contaRepository.findById(conta.getIdConta());
+        if (checagem.isPresent())
+            return new ResponseEntity<Conta>(HttpStatus.FORBIDDEN);
+        else
+            contaRepository.save(conta);
+            return new ResponseEntity<Conta>(HttpStatus.OK);
     }
 
 }
