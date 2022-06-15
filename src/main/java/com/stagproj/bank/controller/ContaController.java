@@ -1,54 +1,55 @@
 package com.stagproj.bank.controller;
 
 import com.stagproj.bank.entity.Conta;
-import com.stagproj.bank.repository.ContaRepository;
-import com.stagproj.bank.repository.PessoaRepository;
+import com.stagproj.bank.service.ContaServices;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 
 import java.util.List;
-import java.util.Optional;
 
 import javax.validation.Valid;
 
 
 @RestController
+@RequestMapping("/contas")
 public class ContaController {
 
-    private final ContaRepository contaRepository;
-    private final PessoaRepository pessoaRepository;
+    private final ContaServices contaServices;
 
-    public ContaController(ContaRepository contaRepository, PessoaRepository pessoaRepository) {
-        this.contaRepository = contaRepository;
-        this.pessoaRepository = pessoaRepository;
+    public ContaController(ContaServices contaServices) {
+        this.contaServices = contaServices;
     }
 
-    @RequestMapping(value = "/conta", method = RequestMethod.GET)
-    public List<Conta> Get() {
-        return contaRepository.findAll();
+    @GetMapping
+    public ResponseEntity<List<Conta>> get() {
+        List<Conta> valores = contaServices.getAll();
+        return new ResponseEntity<>(valores, HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/conta/{idConta}", method = RequestMethod.GET)
-    public ResponseEntity<Conta> GetById(@PathVariable(value = "idConta") long idConta)
+    @GetMapping("/{id}")
+    public ResponseEntity<Conta> getById(@PathVariable long id)
     {
-        Optional<Conta> conta = contaRepository.findById(idConta);
-        return conta.map(value -> new ResponseEntity<>(value, HttpStatus.OK)).orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
+        Conta conta = contaServices.getConta(id);
+        return new ResponseEntity<>(conta, (conta != null ? HttpStatus.OK : HttpStatus.NOT_FOUND));
     }
 
-    @RequestMapping(value = "/conta", method = RequestMethod.POST)
+    @PostMapping
     public ResponseEntity<Conta> post(@Valid @RequestBody Conta conta) {
-        Optional<Conta> checagem = contaRepository.findById(conta.getIdConta());
-        if (checagem.isPresent())
-            return new ResponseEntity<Conta>(HttpStatus.FORBIDDEN);
+        Conta criacao = contaServices.criacaoConta(conta);
+        if (criacao == null)
+        {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
         else
-            contaRepository.save(conta);
-            return new ResponseEntity<Conta>(HttpStatus.OK);
+        {
+            return new ResponseEntity<>(criacao, HttpStatus.OK);
+        }
     }
-
 }
