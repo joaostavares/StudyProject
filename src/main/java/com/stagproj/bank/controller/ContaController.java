@@ -43,13 +43,6 @@ public class ContaController {
     @PostMapping
     public ResponseEntity<Conta> post(@Valid @RequestBody Conta conta) {
         Conta criacao = contaServices.criacaoConta(conta);
-        if (criacao == null)
-        {
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-        }
-        else
-        {
-            return new ResponseEntity<>(criacao, HttpStatus.OK);
-        }
+        return new ResponseEntity<>(criacao, (criacao == null ? HttpStatus.BAD_REQUEST : HttpStatus.OK ));
     }
 }
