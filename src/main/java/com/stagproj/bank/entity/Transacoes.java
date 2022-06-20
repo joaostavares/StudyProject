@@ -5,26 +5,27 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
 
-import javax.persistence.*;
-import java.util.Collection;
-import java.util.List;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class Pessoa {
+public class Transacoes {
     @Id
     @NonNull
-    private long idPessoa;
+    private long idTransacao;
 
     @NonNull
-    private String nome;
+    @ManyToOne
+    private Conta conta;
 
     @NonNull
-    private String cpf;
+    private int valor;
 
     @NonNull
-    private String dataNascimento;
+    private String dataTransacao;
 
 }

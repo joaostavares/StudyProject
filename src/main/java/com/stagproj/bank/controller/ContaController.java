@@ -34,8 +34,7 @@ public class ContaController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Conta> getById(@PathVariable long id)
-    {
+    public ResponseEntity<Conta> getById(@PathVariable long id) {
         Conta conta = contaServices.getConta(id);
         return new ResponseEntity<>(conta, (conta != null ? HttpStatus.OK : HttpStatus.NOT_FOUND));
     }

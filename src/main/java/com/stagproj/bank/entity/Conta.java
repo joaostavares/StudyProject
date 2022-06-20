@@ -7,9 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.NonNull;
 
 
-
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 
 @Data
@@ -35,4 +33,5 @@ public class Conta {
 
     @NonNull
     private String dataCriacao;
+
 }
