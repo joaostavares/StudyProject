@@ -17,12 +17,11 @@ public class ContaServices {
         this.contaRepository = contaRepository;
     }
 
-    public List<Conta> getAll()
-    {
+    public List<Conta> getAll() {
         return contaRepository.findAll();
     }
 
-    public Conta getConta(long id){
+    public Conta getConta(long id) {
         Optional<Conta> conta = contaRepository.findById(id);
         return conta.orElse(null);
     }

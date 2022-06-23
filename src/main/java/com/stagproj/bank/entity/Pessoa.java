@@ -16,6 +16,7 @@ import java.util.List;
 public class Pessoa {
     @Id
     @NonNull
+    @GeneratedValue(strategy=GenerationType.AUTO)
     private long idPessoa;
 
     @NonNull
@@ -27,4 +28,6 @@ public class Pessoa {
     @NonNull
     private String dataNascimento;
 
+    @OneToOne
+    private Conta conta;
 }

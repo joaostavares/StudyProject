@@ -27,22 +27,12 @@ public class PessoaServices {
         Optional<Pessoa> pessoa = pessoaRepository.findById(id);
         return pessoa.isPresent() ? pessoa.get() : null;
     }
-// wrong post
-//    public Pessoa criacaoDados(Pessoa pessoa) {
-//        boolean checagem = checagem(pessoa.getIdPessoa());
-//        if (checagem == false) {
-//            Conta conta = pessoa.getConta();
-//            pessoa.setConta(conta);
-//            pessoaRepository.save(pessoa);
-//            return pessoa;
-//        }
-//        else {
-//            return null;
-//        }
-//    }
 
-    public boolean checagem(long id) {
-        Optional<Pessoa> checagemExistencia = pessoaRepository.findById(id);
-        return checagemExistencia.isPresent();
+    public Pessoa criacaoDados(Pessoa pessoa) {
+        Conta conta = pessoa.getConta();
+        pessoa.setConta(conta);
+        pessoaRepository.save(pessoa);
+        return pessoa;
+
     }
 }

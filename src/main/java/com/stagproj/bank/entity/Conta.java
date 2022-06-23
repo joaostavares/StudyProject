@@ -6,8 +6,12 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
 
-
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.CascadeType;
 
 
 @Data
@@ -17,6 +21,7 @@ import javax.persistence.*;
 public class Conta {
     @Id
     @NonNull
+    @GeneratedValue(strategy= GenerationType.AUTO)
     private long idConta;
 
     @NonNull
@@ -34,4 +39,6 @@ public class Conta {
     @NonNull
     private String dataCriacao;
 
+    @OneToOne(mappedBy = "conta", cascade = CascadeType.ALL)
+    private Pessoa pessoa;
 }
