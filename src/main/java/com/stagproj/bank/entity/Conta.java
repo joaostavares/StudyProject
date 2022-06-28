@@ -1,6 +1,7 @@
 package com.stagproj.bank.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -21,7 +22,7 @@ import javax.persistence.CascadeType;
 public class Conta {
     @Id
     @NonNull
-    @GeneratedValue(strategy= GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long idConta;
 
     @NonNull
@@ -40,5 +41,6 @@ public class Conta {
     private String dataCriacao;
 
     @OneToOne(mappedBy = "conta", cascade = CascadeType.ALL)
+    @JsonBackReference
     private Pessoa pessoa;
 }

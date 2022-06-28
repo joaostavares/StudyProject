@@ -31,8 +31,8 @@ public class PessoaController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Pessoa> getPessoa(@PathVariable long idPessoa) {
-        Pessoa pessoa = pessoaServices.getPessoa(idPessoa);
+    public ResponseEntity<Pessoa> getPessoa(@PathVariable long id) {
+        Pessoa pessoa = pessoaServices.getPessoa(id);
         return new ResponseEntity<>(pessoa, (pessoa != null ? HttpStatus.OK : HttpStatus.NOT_FOUND));
 
     }

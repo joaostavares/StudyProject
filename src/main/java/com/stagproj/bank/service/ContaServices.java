@@ -27,18 +27,7 @@ public class ContaServices {
     }
 
     public Conta criacaoConta(Conta conta){
-        boolean checagem = checagem(conta.getIdConta());
-        if (!checagem){
-            contaRepository.save(conta);
-            return conta;
-        }
-        else{
-            return null;
-        }
-    }
-
-    public boolean checagem(long id){
-        Optional<Conta> checagemExistencia = contaRepository.findById(id);
-        return checagemExistencia.isPresent();
+        contaRepository.save(conta);
+        return conta;
     }
 }

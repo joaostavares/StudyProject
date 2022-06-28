@@ -25,7 +25,7 @@ public class PessoaServices {
 
     public Pessoa getPessoa(long id) {
         Optional<Pessoa> pessoa = pessoaRepository.findById(id);
-        return pessoa.isPresent() ? pessoa.get() : null;
+        return pessoa.orElse(null);
     }
 
     public Pessoa criacaoDados(Pessoa pessoa) {

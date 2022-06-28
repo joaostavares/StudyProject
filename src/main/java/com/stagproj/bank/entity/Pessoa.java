@@ -1,13 +1,17 @@
 package com.stagproj.bank.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
 
-import javax.persistence.*;
-import java.util.Collection;
-import java.util.List;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+
 
 @Data
 @NoArgsConstructor
@@ -16,7 +20,7 @@ import java.util.List;
 public class Pessoa {
     @Id
     @NonNull
-    @GeneratedValue(strategy=GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long idPessoa;
 
     @NonNull
@@ -29,5 +33,6 @@ public class Pessoa {
     private String dataNascimento;
 
     @OneToOne
+    @JsonManagedReference
     private Conta conta;
 }
