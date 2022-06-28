@@ -11,6 +11,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
+import javax.persistence.JoinColumn;
 
 
 @Data
@@ -33,6 +34,7 @@ public class Pessoa {
     private String dataNascimento;
 
     @OneToOne
+    @JoinColumn(name = "idConta", referencedColumnName = "idConta")
     @JsonManagedReference
     private Conta conta;
 }

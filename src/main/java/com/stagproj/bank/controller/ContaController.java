@@ -39,9 +39,23 @@ public class ContaController {
         return new ResponseEntity<>(conta, (conta != null ? HttpStatus.OK : HttpStatus.NOT_FOUND));
     }
 
+
+
     @PostMapping
     public ResponseEntity<Conta> post(@Valid @RequestBody Conta conta) {
         Conta criacao = contaServices.criacaoConta(conta);
         return new ResponseEntity<>(criacao, (criacao == null ? HttpStatus.BAD_REQUEST : HttpStatus.OK ));
+    }
+
+    @GetMapping("/saldo/{id}")
+    public ResponseEntity<?> saldo(@PathVariable long id) {
+        Conta conta = contaServices.getConta(id);
+        return new ResponseEntity<>(conta.getSaldo(), (conta != null ? HttpStatus.OK : HttpStatus.NOT_FOUND));
+    }
+
+    @GetMapping("/establoqueado/{id}")
+    public ResponseEntity<?> establoqueado(@PathVariable long id) {
+        Conta conta = contaServices.getConta(id);
+        return new ResponseEntity<>(conta.isFlagAtivo(), (conta != null ? HttpStatus.OK : HttpStatus.NOT_FOUND));
     }
 }

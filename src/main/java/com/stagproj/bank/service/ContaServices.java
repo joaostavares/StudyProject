@@ -26,7 +26,7 @@ public class ContaServices {
         return conta.orElse(null);
     }
 
-    public Conta criacaoConta(Conta conta){
+    public Conta criacaoConta(Conta conta) {
         contaRepository.save(conta);
         return conta;
     }
