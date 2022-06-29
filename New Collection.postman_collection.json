@@ -1,0 +1,246 @@
+{
+	"info": {
+		"_postman_id": "7fe0cf95-48e5-41bd-847e-ba064983a1c8",
+		"name": "New Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18319745"
+	},
+	"item": [
+		{
+			"name": "localhost:8080/contas/",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/contas/",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"contas",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/pessoas/",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/pessoas/",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"pessoas",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/contas/saldo/1",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/contas/saldo/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"contas",
+						"saldo",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/contas/establoqueado/1",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/contas/establoqueado/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"contas",
+						"establoqueado",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/transacoes/extrato/2",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/transacoes/extrato/2",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"transacoes",
+						"extrato",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/contas",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"saldo\" : 100,\r\n    \"limiteSaqueDiario\" : 10,\r\n    \"flagAtivo\" : 0,\r\n    \"tipoConta\" : 1,\r\n    \"dataCriacao\" : \"09101998\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/contas",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"contas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/pessoas",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nome\" : \"jão\",\r\n    \"cpf\" : \"666\",\r\n    \"dataNascimento\" : \"09101998\",\r\n    {\r\n        \"conta\" : 2\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/pessoas",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"pessoas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/transacoes/deposito",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"valor\" : 400,\r\n    \"dataTransacao\" : \"09101998\",\r\n    \"conta\" : {\r\n        \"idConta\" : 2\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/transacoes/deposito",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"transacoes",
+						"deposito"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/transacoes/saque",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"valor\" : 50,\r\n    \"dataTransacao\" : \"09101998\",\r\n    \"conta\" : {\r\n        \"idConta\" : 1\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/transacoes/saque",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"transacoes",
+						"saque"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/transacoes/travamento",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"valor\" : 400,\r\n    \"dataTransacao\" : \"09101998\",\r\n    \"conta\" : {\r\n        \"idConta\" : 1\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/transacoes/travamento",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"transacoes",
+						"travamento"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
