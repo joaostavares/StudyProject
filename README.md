@@ -17,7 +17,7 @@ Project done during the internship program, which tends to receive evolutions la
 ## Requirements: <br>
 
 * JDK 11
-* Maven 
+* Maven 3.6.3
 * An IDE *( I used Intellij IDEA )*
 * Postman Api Platform *( Just to test the requests, another one of the kind can be used. )*
 <br> <br>
