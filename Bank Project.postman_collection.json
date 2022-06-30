@@ -21,13 +21,13 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:8080/contas",
+					"raw": "localhost:8080/conta",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"contas"
+						"conta"
 					]
 				}
 			},
@@ -40,7 +40,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"nome\" : \"jão\",\r\n    \"cpf\" : \"666\",\r\n    \"dataNascimento\" : \"09101998\",\r\n    {\r\n        \"conta\" : 2\r\n    }\r\n}",
+					"raw": "{\r\n    \"nome\" : \"jão\",\r\n    \"cpf\" : \"666\",\r\n    \"dataNascimento\" : \"09101998\",\r\n    \"conta\": {\r\n        \"idConta\" : 1\r\n    }\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -48,13 +48,13 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:8080/pessoas",
+					"raw": "localhost:8080/pessoa",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"pessoas"
+						"pessoa"
 					]
 				}
 			},
@@ -67,7 +67,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"valor\" : 400,\r\n    \"dataTransacao\" : \"09101998\",\r\n    \"conta\" : {\r\n        \"idConta\" : 2\r\n    }\r\n}",
+					"raw": "{\r\n    \"valor\" : 400,\r\n    \"dataTransacao\" : \"09101998\",\r\n    \"conta\" : {\r\n        \"idConta\" : 1\r\n    }\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -75,13 +75,13 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:8080/transacoes/deposito",
+					"raw": "localhost:8080/transacao/deposito",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"transacoes",
+						"transacao",
 						"deposito"
 					]
 				}
@@ -94,13 +94,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/contas/saldo/1",
+					"raw": "localhost:8080/conta/saldo/1",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"contas",
+						"conta",
 						"saldo",
 						"1"
 					]
@@ -123,13 +123,13 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:8080/transacoes/saque",
+					"raw": "localhost:8080/transacao/saque",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"transacoes",
+						"transacao",
 						"saque"
 					]
 				}
@@ -151,13 +151,13 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:8080/contas/travamento/1",
+					"raw": "localhost:8080/conta/travamento/1",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"contas",
+						"conta",
 						"travamento",
 						"1"
 					]
@@ -171,14 +171,14 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/contas/establoqueado/1",
+					"raw": "localhost:8080/conta/atividade/1",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"contas",
-						"establoqueado",
+						"conta",
+						"atividade",
 						"1"
 					]
 				}
@@ -191,13 +191,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/transacoes/extrato/1",
+					"raw": "localhost:8080/transacao/extrato/1",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"transacoes",
+						"transacao",
 						"extrato",
 						"1"
 					]
