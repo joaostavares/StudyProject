@@ -27,7 +27,7 @@ Project done during the internship program, which tends to receive evolutions la
 
 After cloning the project, access the project through the IDE and run it.
 
-Import Postman presets and use pre-made requests.
+Import Postman presets on `Bank Project.postman_collection.json` and use pre-made requests.
 
 <br> **OR** <br>
 
