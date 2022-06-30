@@ -51,7 +51,7 @@ Example of the request body:
     "valor" : 400,
     "dataTransacao" : "09101998",
     "conta" : {
-        "idConta" : 2
+        "idConta" : 1
     }
 }`
 
