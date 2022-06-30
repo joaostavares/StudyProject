@@ -17,7 +17,7 @@ import javax.persistence.JoinColumn;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class Transacoes {
+public class Transacao {
     @Id
     @NonNull
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -1,0 +1,209 @@
+{
+	"info": {
+		"_postman_id": "22237ee9-5777-4497-8db9-7c0e2f2bf905",
+		"name": "Bank Project",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18319745"
+	},
+	"item": [
+		{
+			"name": "Criação Conta",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"saldo\" : 100,\r\n    \"limiteSaqueDiario\" : 10,\r\n    \"flagAtivo\" : 0,\r\n    \"tipoConta\" : 1,\r\n    \"dataCriacao\" : \"09101998\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/contas",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"contas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Criação Dados Pessoa",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nome\" : \"jão\",\r\n    \"cpf\" : \"666\",\r\n    \"dataNascimento\" : \"09101998\",\r\n    {\r\n        \"conta\" : 2\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/pessoas",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"pessoas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deposito",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"valor\" : 400,\r\n    \"dataTransacao\" : \"09101998\",\r\n    \"conta\" : {\r\n        \"idConta\" : 2\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/transacoes/deposito",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"transacoes",
+						"deposito"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Checagem Saldo",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/contas/saldo/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"contas",
+						"saldo",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Saque",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"valor\" : 50,\r\n    \"dataTransacao\" : \"09101998\",\r\n    \"conta\" : {\r\n        \"idConta\" : 1\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/transacoes/saque",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"transacoes",
+						"saque"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Bloqueio Conta",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/contas/travamento/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"contas",
+						"travamento",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Checagem Bloqueio",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/contas/establoqueado/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"contas",
+						"establoqueado",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Extrato da Conta",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/transacoes/extrato/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"transacoes",
+						"extrato",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

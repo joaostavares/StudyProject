@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-
+import org.springframework.web.bind.annotation.PutMapping;
 
 import java.util.List;
 
@@ -18,7 +18,7 @@ import javax.validation.Valid;
 
 
 @RestController
-@RequestMapping("/contas")
+@RequestMapping("/conta")
 public class ContaController {
 
     private final ContaServices contaServices;
@@ -51,8 +51,14 @@ public class ContaController {
         return new ResponseEntity<>(conta.getSaldo(), (conta != null ? HttpStatus.OK : HttpStatus.NOT_FOUND));
     }
 
-    @GetMapping("/establoqueado/{id}")
-    public ResponseEntity<?> establoqueado(@PathVariable long id) {
+    @PutMapping(value = "/travamento/{id}")
+    public ResponseEntity<?> travamento(@PathVariable long id) {
+        String travamento = contaServices.bloqueioConta(id);
+        return new ResponseEntity<>(travamento, HttpStatus.OK );
+    }
+
+    @GetMapping("/atividade/{id}")
+    public ResponseEntity<?> checagemDeTravamento(@PathVariable long id) {
         Conta conta = contaServices.getConta(id);
         return new ResponseEntity<>(conta.isFlagAtivo(), (conta != null ? HttpStatus.OK : HttpStatus.NOT_FOUND));
     }
