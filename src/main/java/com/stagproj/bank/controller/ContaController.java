@@ -48,7 +48,12 @@ public class ContaController {
     @GetMapping("/saldo/{id}")
     public ResponseEntity<Double> saldo(@PathVariable long id) {
         Conta contaSaldo = contaServices.getConta(id);
-        return new ResponseEntity<>(contaSaldo.getSaldo(), HttpStatus.OK);
+        if (contaSaldo != null) {
+            return new ResponseEntity<>(contaSaldo.getSaldo(), HttpStatus.OK);
+        }
+        else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
     }
 
     @PutMapping(value = "/travamento/{id}")
