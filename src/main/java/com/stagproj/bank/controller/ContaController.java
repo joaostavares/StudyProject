@@ -18,7 +18,7 @@ import javax.validation.Valid;
 
 
 @RestController
-@RequestMapping("/conta")
+@RequestMapping("/contas")
 public class ContaController {
 
     private final ContaServices contaServices;

@@ -16,7 +16,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-@RequestMapping("/pessoa")
+@RequestMapping("/pessoas")
 public class PessoaController {
     private final PessoaServices pessoaServices;
 
