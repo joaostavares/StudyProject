@@ -24,7 +24,7 @@ public class TransacaoController {
         this.transacaoServices = transacaoServices;
     }
     @GetMapping("/extrato/{id}")
-    public ResponseEntity<?> extrato(@PathVariable long id) {
+    public ResponseEntity<List<Transacao>> extrato(@PathVariable long id) {
         List<Transacao> extrato = transacaoServices.extrato(id);
         return new ResponseEntity<>(extrato, (extrato != null ? HttpStatus.OK : HttpStatus.NOT_FOUND));
     }

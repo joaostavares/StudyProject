@@ -46,20 +46,20 @@ public class ContaController {
     }
 
     @GetMapping("/saldo/{id}")
-    public ResponseEntity<?> saldo(@PathVariable long id) {
-        Conta conta = contaServices.getConta(id);
-        return new ResponseEntity<>(conta.getSaldo(), (conta != null ? HttpStatus.OK : HttpStatus.NOT_FOUND));
+    public ResponseEntity<Double> saldo(@PathVariable long id) {
+        Conta contaSaldo = contaServices.getConta(id);
+        return new ResponseEntity<>(contaSaldo.getSaldo(), HttpStatus.OK);
     }
 
     @PutMapping(value = "/travamento/{id}")
-    public ResponseEntity<?> travamento(@PathVariable long id) {
-        String travamento = contaServices.bloqueioConta(id);
-        return new ResponseEntity<>(travamento, HttpStatus.OK );
+    public ResponseEntity<HttpStatus> travamento(@PathVariable long id) {
+        Conta travamento = contaServices.bloqueioConta(id);
+        return new ResponseEntity<>(travamento != null ? HttpStatus.OK : HttpStatus.NOT_FOUND);
     }
 
     @GetMapping("/atividade/{id}")
-    public ResponseEntity<?> checagemDeTravamento(@PathVariable long id) {
-        Conta conta = contaServices.getConta(id);
-        return new ResponseEntity<>(conta.isFlagAtivo(), (conta != null ? HttpStatus.OK : HttpStatus.NOT_FOUND));
+    public ResponseEntity<Boolean> checagemDeTravamento(@PathVariable long id) {
+        Conta atividade = contaServices.getConta(id);
+        return new ResponseEntity<>(atividade != null ? HttpStatus.OK : HttpStatus.NOT_FOUND);
     }
 }

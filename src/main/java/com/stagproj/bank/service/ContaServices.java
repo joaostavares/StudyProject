@@ -1,7 +1,6 @@
 package com.stagproj.bank.service;
 
 import com.stagproj.bank.entity.Conta;
-import com.stagproj.bank.entity.Transacao;
 import com.stagproj.bank.repository.ContaRepository;
 import org.springframework.stereotype.Service;
 
@@ -32,14 +31,14 @@ public class ContaServices {
         return conta;
     }
 
-    public String bloqueioConta(long id) { //refazer esse metodo
+    public Conta bloqueioConta(long id) {
         Conta conta = getConta(id);
-        String resultado = "Conta Já Bloqueada";
-        if(!conta.isFlagAtivo()) {
-            conta.setFlagAtivo(true);
-            contaRepository.save(conta);
-            resultado = "Conta Bloqueada";
+        if (conta != null) {
+            if (!conta.isFlagAtivo()) {
+                conta.setFlagAtivo(true);
+                contaRepository.save(conta);
+            }
         }
-        return resultado;
+        return conta;
     }
 }
