@@ -31,7 +31,7 @@ Import Postman presets on `Bank Project.postman_collection.json` and use pre-mad
 
 <br> **OR** <br>
 
-<br> Create a new account in H2 DataBase with a Post Request on `localhost:8080/conta`:
+<br> Create a new account in H2 DataBase with a Post Request on `localhost:8080/contas`:
 
 Example of the request body:
 
@@ -43,7 +43,7 @@ Example of the request body:
     "dataCriacao" : "09101998"
 }`
 
-<br> To make a deposit, make a Post Request at `localhost:8080/transacao/deposito` :
+<br> To make a deposit, make a Post Request at `localhost:8080/transacoes/deposito` :
 
 Example of the request body:
 
@@ -55,7 +55,7 @@ Example of the request body:
     }
 }`
 
-<br> To make a withdrawal, make a Post Request at `localhost:8080/transacao/saque` :
+<br> To make a withdrawal, make a Post Request at `localhost:8080/transacoes/saque` :
 
 `{
     "valor" : 50,
@@ -67,15 +67,15 @@ Example of the request body:
 
 <br>To check the balance, make a Get Request at:
 
-`localhost:8080/conta/saldo/id` *( Change id to the id of the created account )*
+`localhost:8080/contas/saldo/id` *( Change id to the id of the created account )*
 
 <br>To block the account, make a Put Request at:
 
-`localhost:8080/conta/travamento/id` *( Change id to the id of the created account )*
+`localhost:8080/contas/travamento/id` *( Change id to the id of the created account )*
 
 <br>To get the account statement, make a Get Request at:
 
-`localhost:8080/trasacao/extrato/id` *( Change id to the id of the created account )*
+`localhost:8080/trasacoes/extrato/id` *( Change id to the id of the created account )*
 
 ### Comments: <br>
 
