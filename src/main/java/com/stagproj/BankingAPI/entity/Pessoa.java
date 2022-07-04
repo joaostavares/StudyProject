@@ -1,6 +1,6 @@
-package com.stagproj.bank.entity;
+package com.stagproj.BankingAPI.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -10,28 +10,31 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.JoinColumn;
+
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class Transacao {
+public class Pessoa {
     @Id
     @NonNull
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long idTransacao;
+    private long idPessoa;
 
     @NonNull
-    private double valor;
+    private String nome;
 
     @NonNull
-    private String dataTransacao;
+    private String cpf;
 
-    @ManyToOne
-    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+    @NonNull
+    private String dataNascimento;
+
+    @OneToOne
     @JoinColumn(name = "idConta", referencedColumnName = "idConta")
+    @JsonManagedReference
     private Conta conta;
-
 }

@@ -1,4 +1,4 @@
-package com.stagproj.bank.entity;
+package com.stagproj.BankingAPI.entity;
 
 
 import com.fasterxml.jackson.annotation.JsonBackReference;

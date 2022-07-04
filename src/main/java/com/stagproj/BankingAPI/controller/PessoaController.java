@@ -1,7 +1,7 @@
-package com.stagproj.bank.controller;
+package com.stagproj.BankingAPI.controller;
 
-import com.stagproj.bank.entity.Pessoa;
-import com.stagproj.bank.service.PessoaServices;
+import com.stagproj.BankingAPI.entity.Pessoa;
+import com.stagproj.BankingAPI.service.PessoaServices;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

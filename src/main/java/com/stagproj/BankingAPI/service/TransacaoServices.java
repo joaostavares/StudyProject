@@ -1,9 +1,9 @@
-package com.stagproj.bank.service;
+package com.stagproj.BankingAPI.service;
 
-import com.stagproj.bank.entity.Conta;
-import com.stagproj.bank.entity.Transacao;
-import com.stagproj.bank.repository.ContaRepository;
-import com.stagproj.bank.repository.TransacaoRepository;
+import com.stagproj.BankingAPI.entity.Conta;
+import com.stagproj.BankingAPI.entity.Transacao;
+import com.stagproj.BankingAPI.repository.ContaRepository;
+import com.stagproj.BankingAPI.repository.TransacaoRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

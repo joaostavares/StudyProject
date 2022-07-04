@@ -1,7 +1,7 @@
-package com.stagproj.bank.controller;
+package com.stagproj.BankingAPI.controller;
 
-import com.stagproj.bank.entity.Conta;
-import com.stagproj.bank.service.ContaServices;
+import com.stagproj.BankingAPI.entity.Conta;
+import com.stagproj.BankingAPI.service.ContaServices;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
