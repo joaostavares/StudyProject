@@ -44,7 +44,7 @@ public class PessoaController {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
         else {
-            return new ResponseEntity<>(criacao, HttpStatus.OK);
+            return new ResponseEntity<>(criacao, HttpStatus.CREATED);
         }
     }
 }
