@@ -22,10 +22,11 @@ import java.util.List;
 public class TransacaoController {
 
     private final TransacaoService transacaoService;
-    private ModelMapper modelMapper;
+    private final ModelMapper modelMapper;
 
-    public TransacaoController(TransacaoService transacaoService) {
+    public TransacaoController(TransacaoService transacaoService, ModelMapper modelMapper) {
         this.transacaoService = transacaoService;
+        this.modelMapper = modelMapper;
     }
     @GetMapping("/extrato/{id}")
     public ResponseEntity<List<Transacao>> extrato(@PathVariable long id) {
@@ -42,9 +43,11 @@ public class TransacaoController {
     }
 
     @PostMapping(value = "/saque")
-    public ResponseEntity<Transacao> saque(@Valid @RequestBody Transacao transacao) {
+    public ResponseEntity<TransacaoResponse> saque(@Valid @RequestBody TransacaoRequest transacaoRequest) {
+        Transacao transacao = modelMapper.map(transacaoRequest, Transacao.class);
         Transacao saque = transacaoService.saque(transacao);
-        return new ResponseEntity<>(saque, HttpStatus.OK );
+        TransacaoResponse transacaoResponse = modelMapper.map(saque, TransacaoResponse.class);
+        return new ResponseEntity<>(transacaoResponse, HttpStatus.OK );
     }
 
 }
