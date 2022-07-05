@@ -1,7 +1,7 @@
-package com.stagproj.BankingAPI.controller;
+package com.stagproj.BankingAPI.controllers;
 
-import com.stagproj.BankingAPI.entity.Transacao;
-import com.stagproj.BankingAPI.service.TransacaoServices;
+import com.stagproj.BankingAPI.entities.Transacao;
+import com.stagproj.BankingAPI.services.TransacaoService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,26 +18,26 @@ import java.util.List;
 @RequestMapping("/transacoes")
 public class TransacaoController {
 
-    private final TransacaoServices transacaoServices;
+    private final TransacaoService transacaoService;
 
-    public TransacaoController(TransacaoServices transacaoServices) {
-        this.transacaoServices = transacaoServices;
+    public TransacaoController(TransacaoService transacaoService) {
+        this.transacaoService = transacaoService;
     }
     @GetMapping("/extrato/{id}")
     public ResponseEntity<List<Transacao>> extrato(@PathVariable long id) {
-        List<Transacao> extrato = transacaoServices.extrato(id);
+        List<Transacao> extrato = transacaoService.extrato(id);
         return new ResponseEntity<>(extrato, (extrato != null ? HttpStatus.OK : HttpStatus.NOT_FOUND));
     }
 
     @PostMapping(value = "/deposito")
     public ResponseEntity<Transacao> deposito(@Valid @RequestBody Transacao transacao) {
-        Transacao deposito = transacaoServices.deposito(transacao);
+        Transacao deposito = transacaoService.deposito(transacao);
         return new ResponseEntity<>(deposito, HttpStatus.OK );
     }
 
     @PostMapping(value = "/saque")
     public ResponseEntity<Transacao> saque(@Valid @RequestBody Transacao transacao) {
-        Transacao saque = transacaoServices.saque(transacao);
+        Transacao saque = transacaoService.saque(transacao);
         return new ResponseEntity<>(saque, HttpStatus.OK );
     }
 

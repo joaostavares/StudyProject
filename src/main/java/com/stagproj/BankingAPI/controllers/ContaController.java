@@ -1,8 +1,7 @@
-package com.stagproj.BankingAPI.controller;
+package com.stagproj.BankingAPI.controllers;
 
-import com.stagproj.BankingAPI.dto.ContaDto;
-import com.stagproj.BankingAPI.entity.Conta;
-import com.stagproj.BankingAPI.service.ContaServices;
+import com.stagproj.BankingAPI.entities.Conta;
+import com.stagproj.BankingAPI.services.ContaService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
@@ -22,33 +21,33 @@ import javax.validation.Valid;
 @RequestMapping("/contas")
 public class ContaController {
 
-    private final ContaServices contaServices;
+    private final ContaService contaService;
 
-    public ContaController(ContaServices contaServices) {
-        this.contaServices = contaServices;
+    public ContaController(ContaService contaService) {
+        this.contaService = contaService;
     }
 
     @GetMapping
     public ResponseEntity<List<Conta>> get() {
-        List<Conta> valores = contaServices.getAll();
+        List<Conta> valores = contaService.getAll();
         return new ResponseEntity<>(valores, HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<Conta> getById(@PathVariable long id) {
-        Conta conta = contaServices.getConta(id);
+        Conta conta = contaService.getConta(id);
         return new ResponseEntity<>(conta, (conta != null ? HttpStatus.OK : HttpStatus.NOT_FOUND));
     }
 
     @PostMapping
-    public ResponseEntity<ContaDto> post(@Valid @RequestBody Conta conta) {
-        ContaDto criacao = contaServices.criacaoConta(conta);
+    public ResponseEntity<Conta> post(@Valid @RequestBody Conta conta) {
+        Conta criacao = contaService.criacaoConta(conta);
         return new ResponseEntity<>(criacao, (criacao == null ? HttpStatus.BAD_REQUEST : HttpStatus.CREATED ));
     }
 
     @GetMapping("/saldo/{id}")
     public ResponseEntity<Double> saldo(@PathVariable long id) {
-        Conta contaSaldo = contaServices.getConta(id);
+        Conta contaSaldo = contaService.getConta(id);
         if (contaSaldo != null) {
             return new ResponseEntity<>(contaSaldo.getSaldo(), HttpStatus.OK);
         }
@@ -59,13 +58,13 @@ public class ContaController {
 
     @PutMapping(value = "/travamento/{id}")
     public ResponseEntity<HttpStatus> travamento(@PathVariable long id) {
-        Conta travamento = contaServices.bloqueioConta(id);
+        Conta travamento = contaService.bloqueioConta(id);
         return new ResponseEntity<>(travamento != null ? HttpStatus.OK : HttpStatus.NOT_FOUND);
     }
 
     @GetMapping("/atividade/{id}")
     public ResponseEntity<Boolean> checagemDeTravamento(@PathVariable long id) {
-        Conta atividade = contaServices.getConta(id);
+        Conta atividade = contaService.getConta(id);
         return new ResponseEntity<>(atividade != null ? HttpStatus.OK : HttpStatus.NOT_FOUND);
     }
 }

@@ -1,9 +1,9 @@
-package com.stagproj.BankingAPI.service;
-import com.stagproj.BankingAPI.entity.Pessoa;
+package com.stagproj.BankingAPI.services;
+import com.stagproj.BankingAPI.entities.Pessoa;
 import java.util.List;
 
 
-public interface PessoaServices {
+public interface PessoaService {
     List<Pessoa> getAll();
 
     Pessoa getPessoa(long id);

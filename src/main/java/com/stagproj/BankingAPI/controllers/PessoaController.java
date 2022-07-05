@@ -1,7 +1,7 @@
-package com.stagproj.BankingAPI.controller;
+package com.stagproj.BankingAPI.controllers;
 
-import com.stagproj.BankingAPI.entity.Pessoa;
-import com.stagproj.BankingAPI.service.PessoaServices;
+import com.stagproj.BankingAPI.entities.Pessoa;
+import com.stagproj.BankingAPI.services.PessoaService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,28 +18,28 @@ import java.util.List;
 @RestController
 @RequestMapping("/pessoas")
 public class PessoaController {
-    private final PessoaServices pessoaServices;
+    private final PessoaService pessoaService;
 
-    public PessoaController(PessoaServices pessoaServices) {
-        this.pessoaServices = pessoaServices;
+    public PessoaController(PessoaService pessoaService) {
+        this.pessoaService = pessoaService;
     }
 
     @GetMapping
     public ResponseEntity<List<Pessoa>> getAll() {
-        List<Pessoa> valores = pessoaServices.getAll();
+        List<Pessoa> valores = pessoaService.getAll();
         return new ResponseEntity<>(valores, HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<Pessoa> getPessoa(@PathVariable long id) {
-        Pessoa pessoa = pessoaServices.getPessoa(id);
+        Pessoa pessoa = pessoaService.getPessoa(id);
         return new ResponseEntity<>(pessoa, (pessoa != null ? HttpStatus.OK : HttpStatus.NOT_FOUND));
 
     }
 
     @PostMapping
     public ResponseEntity<Pessoa> post(@Valid @RequestBody Pessoa pessoa) {
-        Pessoa criacao = pessoaServices.criacaoDados(pessoa);
+        Pessoa criacao = pessoaService.criacaoDados(pessoa);
         if (criacao == null) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
