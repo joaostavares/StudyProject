@@ -2,6 +2,7 @@ package com.stagproj.BankingAPI.entity;
 
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.stagproj.BankingAPI.dto.ContaDto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -42,4 +43,8 @@ public class Conta {
     @OneToOne(mappedBy = "conta", cascade = CascadeType.ALL)
     @JsonBackReference
     private Pessoa pessoa;
+
+    public ContaDto obterContaDto() {
+        return new ContaDto(this.idConta);
+    }
 }

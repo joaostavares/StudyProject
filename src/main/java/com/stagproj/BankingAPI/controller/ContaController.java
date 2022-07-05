@@ -1,5 +1,6 @@
 package com.stagproj.BankingAPI.controller;
 
+import com.stagproj.BankingAPI.dto.ContaDto;
 import com.stagproj.BankingAPI.entity.Conta;
 import com.stagproj.BankingAPI.service.ContaServices;
 import org.springframework.http.HttpStatus;
@@ -40,8 +41,8 @@ public class ContaController {
     }
 
     @PostMapping
-    public ResponseEntity<Conta> post(@Valid @RequestBody Conta conta) {
-        Conta criacao = contaServices.criacaoConta(conta);
+    public ResponseEntity<ContaDto> post(@Valid @RequestBody Conta conta) {
+        ContaDto criacao = contaServices.criacaoConta(conta);
         return new ResponseEntity<>(criacao, (criacao == null ? HttpStatus.BAD_REQUEST : HttpStatus.CREATED ));
     }
 

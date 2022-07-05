@@ -1,5 +1,6 @@
 package com.stagproj.BankingAPI.service.impl;
 
+import com.stagproj.BankingAPI.dto.ContaDto;
 import com.stagproj.BankingAPI.entity.Conta;
 import com.stagproj.BankingAPI.repository.ContaRepository;
 import com.stagproj.BankingAPI.service.ContaServices;
@@ -26,9 +27,9 @@ public class ContaServicesImpl implements ContaServices {
         return conta.orElse(null);
     }
 
-    public Conta criacaoConta(Conta conta) {
+    public ContaDto criacaoConta(Conta conta) {
         contaRepository.save(conta);
-        return conta;
+        return conta.obterContaDto();
     }
 
     public Conta bloqueioConta(long id) {
