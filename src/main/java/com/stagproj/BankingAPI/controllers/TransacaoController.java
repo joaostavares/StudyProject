@@ -1,7 +1,10 @@
 package com.stagproj.BankingAPI.controllers;
 
+import com.stagproj.BankingAPI.dtos.Reponse.TransacaoResponse;
+import com.stagproj.BankingAPI.dtos.Request.TransacaoRequest;
 import com.stagproj.BankingAPI.entities.Transacao;
 import com.stagproj.BankingAPI.services.TransacaoService;
+import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,6 +22,7 @@ import java.util.List;
 public class TransacaoController {
 
     private final TransacaoService transacaoService;
+    private ModelMapper modelMapper;
 
     public TransacaoController(TransacaoService transacaoService) {
         this.transacaoService = transacaoService;
@@ -30,9 +34,11 @@ public class TransacaoController {
     }
 
     @PostMapping(value = "/deposito")
-    public ResponseEntity<Transacao> deposito(@Valid @RequestBody Transacao transacao) {
+    public ResponseEntity<TransacaoResponse> deposito(@Valid @RequestBody TransacaoRequest transacaoRequest) {
+        Transacao transacao = modelMapper.map(transacaoRequest, Transacao.class);
         Transacao deposito = transacaoService.deposito(transacao);
-        return new ResponseEntity<>(deposito, HttpStatus.OK );
+        TransacaoResponse transacaoResponse = modelMapper.map(deposito, TransacaoResponse.class);
+        return new ResponseEntity<>(transacaoResponse, HttpStatus.OK );
     }
 
     @PostMapping(value = "/saque")
