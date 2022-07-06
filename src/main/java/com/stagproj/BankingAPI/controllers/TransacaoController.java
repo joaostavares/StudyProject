@@ -22,11 +22,9 @@ import java.util.List;
 public class TransacaoController {
 
     private final TransacaoService transacaoService;
-    private final ModelMapper modelMapper;
 
-    public TransacaoController(TransacaoService transacaoService, ModelMapper modelMapper) {
+    public TransacaoController(TransacaoService transacaoService) {
         this.transacaoService = transacaoService;
-        this.modelMapper = modelMapper;
     }
     @GetMapping("/extrato/{id}")
     public ResponseEntity<List<Transacao>> extrato(@PathVariable long id) {
@@ -35,19 +33,15 @@ public class TransacaoController {
     }
 
     @PostMapping(value = "/deposito")
-    public ResponseEntity<TransacaoResponse> deposito(@Valid @RequestBody TransacaoRequest transacaoRequest) {
-        Transacao transacao = modelMapper.map(transacaoRequest, Transacao.class);
+    public ResponseEntity<Transacao> deposito(@Valid @RequestBody Transacao transacao) {
         Transacao deposito = transacaoService.deposito(transacao);
-        TransacaoResponse transacaoResponse = modelMapper.map(deposito, TransacaoResponse.class);
-        return new ResponseEntity<>(transacaoResponse, HttpStatus.OK );
+        return new ResponseEntity<>(deposito, HttpStatus.OK );
     }
 
     @PostMapping(value = "/saque")
-    public ResponseEntity<TransacaoResponse> saque(@Valid @RequestBody TransacaoRequest transacaoRequest) {
-        Transacao transacao = modelMapper.map(transacaoRequest, Transacao.class);
+    public ResponseEntity<Transacao> saque(@Valid @RequestBody Transacao transacao) {
         Transacao saque = transacaoService.saque(transacao);
-        TransacaoResponse transacaoResponse = modelMapper.map(saque, TransacaoResponse.class);
-        return new ResponseEntity<>(transacaoResponse, HttpStatus.OK );
+        return new ResponseEntity<>(saque, HttpStatus.OK );
     }
 
 }
