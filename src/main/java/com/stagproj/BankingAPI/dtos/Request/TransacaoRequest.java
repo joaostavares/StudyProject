@@ -12,5 +12,5 @@ public class TransacaoRequest {
 
     private String dataTransacao;
 
-    public long idConta;
+    private Long contaId;
 }

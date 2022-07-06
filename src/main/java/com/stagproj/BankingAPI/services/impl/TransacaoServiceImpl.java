@@ -21,14 +21,14 @@ public class TransacaoServiceImpl implements TransacaoService {
     }
 
     public Transacao deposito(Transacao transacao) {
-        Conta conta = contaRepository.getReferenceById(transacao.getConta().getIdConta());
+        Conta conta = contaRepository.getReferenceById(transacao.getConta().getId());
         conta.setSaldo(conta.getSaldo() + transacao.getValor());
         transacaoRepository.save(transacao);
         return transacao;
     }
 
     public Transacao saque(Transacao transacao) {
-        Conta conta = contaRepository.getReferenceById(transacao.getConta().getIdConta());
+        Conta conta = contaRepository.getReferenceById(transacao.getConta().getId());
         conta.setSaldo(conta.getSaldo() - transacao.getValor());
         transacaoRepository.save(transacao);
         return transacao;

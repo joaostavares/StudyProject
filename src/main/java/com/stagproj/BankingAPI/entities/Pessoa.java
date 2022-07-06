@@ -34,7 +34,7 @@ public class Pessoa {
     private String dataNascimento;
 
     @OneToOne
-    @JoinColumn(name = "idConta", referencedColumnName = "idConta")
+    @JoinColumn(name = "idConta", referencedColumnName = "id")
     @JsonManagedReference
     private Conta conta;
 }

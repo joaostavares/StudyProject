@@ -20,9 +20,8 @@ import javax.persistence.CascadeType;
 @Entity
 public class Conta {
     @Id
-    @NonNull
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long idConta;
+    private Long id;
 
     @NonNull
     private double saldo;
