@@ -1,5 +1,6 @@
 package com.stagproj.BankingAPI.dtos.Request;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -12,5 +13,8 @@ public class TransacaoRequest {
 
     private String dataTransacao;
 
-    public long idConta;
+    private Long idConta;
+
+    @JsonIgnore
+    private Long id;
 }

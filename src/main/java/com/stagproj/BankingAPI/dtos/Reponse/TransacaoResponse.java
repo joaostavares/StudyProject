@@ -12,5 +12,5 @@ public class TransacaoResponse {
 
     private String dataTransacao;
 
-    public long idConta;
+    private Long idConta;
 }
