@@ -24,7 +24,8 @@ public class TransacaoController {
     private final TransacaoService transacaoService;
     private final ModelMapper modelMapper;
 
-    public TransacaoController(TransacaoService transacaoService, ModelMapper modelMapper) {
+    public TransacaoController(TransacaoService transacaoService
+            , ModelMapper modelMapper) {
         this.transacaoService = transacaoService;
         this.modelMapper = modelMapper;
     }
