@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
-@EnableJpaRepositories("com.stagproj.BankingAPI.repository")
+@EnableJpaRepositories("com.stagproj.BankingAPI.repositories")
 public class BankApplication {
 
 	public static void main(String[] args) {

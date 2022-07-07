@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "22237ee9-5777-4497-8db9-7c0e2f2bf905",
+		"_postman_id": "135ba95a-e684-4609-ab9d-5436d9ac8097",
 		"name": "Bank Project",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "18319745"
@@ -40,7 +40,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"nome\" : \"jão\",\r\n    \"cpf\" : \"666\",\r\n    \"dataNascimento\" : \"09101998\",\r\n    \"conta\": {\r\n        \"idConta\" : 1\r\n    }\r\n}",
+					"raw": "{\r\n    \"nome\" : \"jão\",\r\n    \"cpf\" : \"666\",\r\n    \"dataNascimento\" : \"09101998\",\r\n    \"idConta\" : 1\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -67,7 +67,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"valor\" : 400,\r\n    \"dataTransacao\" : \"09101998\",\r\n    \"conta\" : {\r\n        \"idConta\" : 1\r\n    }\r\n}",
+					"raw": "{\r\n    \"valor\" : 400,\r\n    \"dataTransacao\" : \"09101998\",\r\n    \"idConta\" : 1\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -115,7 +115,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"valor\" : 50,\r\n    \"dataTransacao\" : \"09101998\",\r\n    \"conta\" : {\r\n        \"idConta\" : 1\r\n    }\r\n}",
+					"raw": "{\r\n    \"valor\" : 50,\r\n    \"dataTransacao\" : \"09101998\",\r\n    \"idConta\" : 1\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"

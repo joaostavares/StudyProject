@@ -1,4 +1,4 @@
-package com.stagproj.BankingAPI.entity;
+package com.stagproj.BankingAPI.entities;
 
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
@@ -20,9 +20,8 @@ import javax.persistence.CascadeType;
 @Entity
 public class Conta {
     @Id
-    @NonNull
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long idConta;
+    private Long id;
 
     @NonNull
     private double saldo;

@@ -1,19 +1,19 @@
-package com.stagproj.BankingAPI.service;
+package com.stagproj.BankingAPI.services.impl;
 
-import com.stagproj.BankingAPI.entity.Conta;
-import com.stagproj.BankingAPI.repository.ContaRepository;
+import com.stagproj.BankingAPI.entities.Conta;
+import com.stagproj.BankingAPI.repositories.ContaRepository;
+import com.stagproj.BankingAPI.services.ContaService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
-
 @Service
-public class ContaServices {
+public class ContaServiceImpl implements ContaService {
 
     private final ContaRepository contaRepository;
 
-    public ContaServices(ContaRepository contaRepository) {
+    public ContaServiceImpl(ContaRepository contaRepository) {
         this.contaRepository = contaRepository;
     }
 

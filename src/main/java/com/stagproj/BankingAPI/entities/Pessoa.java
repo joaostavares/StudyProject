@@ -1,4 +1,4 @@
-package com.stagproj.BankingAPI.entity;
+package com.stagproj.BankingAPI.entities;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
@@ -22,7 +22,7 @@ public class Pessoa {
     @Id
     @NonNull
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long idPessoa;
+    private long id;
 
     @NonNull
     private String nome;
@@ -34,7 +34,7 @@ public class Pessoa {
     private String dataNascimento;
 
     @OneToOne
-    @JoinColumn(name = "idConta", referencedColumnName = "idConta")
+    @JoinColumn(name = "idConta", referencedColumnName = "id")
     @JsonManagedReference
     private Conta conta;
 }

@@ -50,9 +50,7 @@ Example of the request body:
 `{
     "valor" : 400,
     "dataTransacao" : "09101998",
-    "conta" : {
-        "idConta" : 1
-    }
+    "idConta" : 1
 }`
 
 <br> To make a withdrawal, make a Post Request at `localhost:8080/transacoes/saque` :
@@ -60,9 +58,7 @@ Example of the request body:
 `{
     "valor" : 50,
     "dataTransacao" : "09101998",
-    "conta" : {
-        "idConta" : 1
-    }
+    "idConta" : 1 
 }`
 
 <br>To check the balance, make a Get Request at:

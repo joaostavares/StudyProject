@@ -1,6 +1,6 @@
-package com.stagproj.BankingAPI.repository;
+package com.stagproj.BankingAPI.repositories;
 
-import com.stagproj.BankingAPI.entity.Pessoa;
+import com.stagproj.BankingAPI.entities.Pessoa;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

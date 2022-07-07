@@ -1,4 +1,4 @@
-package com.stagproj.BankingAPI.entity;
+package com.stagproj.BankingAPI.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
@@ -19,9 +19,8 @@ import javax.persistence.JoinColumn;
 @Entity
 public class Transacao {
     @Id
-    @NonNull
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long idTransacao;
+    private Long id;
 
     @NonNull
     private double valor;
@@ -31,7 +30,7 @@ public class Transacao {
 
     @ManyToOne
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-    @JoinColumn(name = "idConta", referencedColumnName = "idConta")
+    @JoinColumn(name = "idConta", referencedColumnName = "id")
     private Conta conta;
 
 }
