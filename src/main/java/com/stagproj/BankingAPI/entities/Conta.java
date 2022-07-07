@@ -2,6 +2,7 @@ package com.stagproj.BankingAPI.entities;
 
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,6 +14,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.OneToOne;
 import javax.persistence.CascadeType;
+import java.util.Date;
 
 @Data
 @NoArgsConstructor
@@ -36,7 +38,8 @@ public class Conta {
     private int tipoConta;
 
     @NonNull
-    private String dataCriacao;
+    @JsonFormat(pattern="dd-MM-yyyy")
+    private Date dataCriacao;
 
     @OneToOne(mappedBy = "conta", cascade = CascadeType.ALL)
     @JsonBackReference

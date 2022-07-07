@@ -1,5 +1,6 @@
 package com.stagproj.BankingAPI.entities;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -12,6 +13,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.JoinColumn;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Past;
+import java.util.Date;
+import org.hibernate.validator.constraints.br.CPF;
 
 
 @Data
@@ -27,11 +32,14 @@ public class Pessoa {
     @NonNull
     private String nome;
 
-    @NonNull
+    @CPF
+    @NotBlank
     private String cpf;
 
+    @Past
     @NonNull
-    private String dataNascimento;
+    @JsonFormat(pattern="dd-MM-yyyy")
+    private Date dataNascimento;
 
     @OneToOne
     @JoinColumn(name = "idConta", referencedColumnName = "id")

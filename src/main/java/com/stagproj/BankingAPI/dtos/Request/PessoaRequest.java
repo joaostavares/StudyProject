@@ -3,6 +3,8 @@ package com.stagproj.BankingAPI.dtos.Request;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.Date;
+
 @Getter
 @Setter
 public class PessoaRequest {
@@ -11,7 +13,7 @@ public class PessoaRequest {
 
     private String cpf;
 
-    private String dataNascimento;
+    private Date dataNascimento;
 
     private long idConta;
 }
