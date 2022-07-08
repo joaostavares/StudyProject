@@ -13,7 +13,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.JoinColumn;
-import java.util.Date;
+import java.time.LocalDate;
 
 @Data
 @NoArgsConstructor
@@ -28,8 +28,8 @@ public class Transacao {
     private double valor;
 
     @NonNull
-    @JsonFormat(pattern="yyyy-MM-dd")
-    private Date dataTransacao;
+    @JsonFormat(pattern="dd-MM-yyyy")
+    private LocalDate dataTransacao;
 
     @ManyToOne
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})

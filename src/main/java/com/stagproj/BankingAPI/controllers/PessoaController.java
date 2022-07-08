@@ -44,7 +44,7 @@ public class PessoaController {
     }
 
     @PostMapping
-    public ResponseEntity<PessoaResponse> post(@Valid @RequestBody PessoaRequest pessoaRequest) {
+    public ResponseEntity<PessoaResponse> post(@Valid @RequestBody PessoaRequest pessoaRequest) throws Exception {
 
         Pessoa pessoa = modelMapper.map(pessoaRequest, Pessoa.class);
         Pessoa criacao = pessoaService.criacaoDados(pessoa);

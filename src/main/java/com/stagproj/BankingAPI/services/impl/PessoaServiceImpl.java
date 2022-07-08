@@ -9,6 +9,8 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
+import static java.util.Objects.nonNull;
+
 @Service
 public class PessoaServiceImpl implements PessoaService {
     private final PessoaRepository pessoaRepository;
@@ -26,11 +28,17 @@ public class PessoaServiceImpl implements PessoaService {
         return pessoa.orElse(null);
     }
 
-    public Pessoa criacaoDados(Pessoa pessoa) {
+    public Pessoa criacaoDados(Pessoa pessoa) throws Exception{
         Conta conta = pessoa.getConta();
         pessoa.setConta(conta);
-        pessoaRepository.save(pessoa);
-        return pessoa;
-
+        try {
+            if (nonNull(pessoaRepository.findByCpf(pessoa.getCpf()))) {
+                throw new Exception("O Cpf inserido ja pertence a outro pessoa.");
+            }
+            return pessoaRepository.save(pessoa);
+        }catch (Exception ee) {
+            throw new Exception(ee.getMessage());
+        }
     }
+
 }

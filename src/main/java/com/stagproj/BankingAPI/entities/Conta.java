@@ -14,7 +14,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.OneToOne;
 import javax.persistence.CascadeType;
-import java.util.Date;
+import java.time.LocalDate;
 
 @Data
 @NoArgsConstructor
@@ -39,7 +39,7 @@ public class Conta {
 
     @NonNull
     @JsonFormat(pattern="dd-MM-yyyy")
-    private Date dataCriacao;
+    private LocalDate dataCriacao;
 
     @OneToOne(mappedBy = "conta", cascade = CascadeType.ALL)
     @JsonBackReference

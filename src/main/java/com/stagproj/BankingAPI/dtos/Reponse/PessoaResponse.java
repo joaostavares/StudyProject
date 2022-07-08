@@ -1,9 +1,10 @@
 package com.stagproj.BankingAPI.dtos.Reponse;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 @Getter
 @Setter
@@ -13,7 +14,8 @@ public class PessoaResponse {
 
     private String cpf;
 
-    private Date dataNascimento;
+    @JsonFormat(pattern="dd-MM-yyyy")
+    private LocalDate dataNascimento;
 
     private long idConta;
 }

@@ -14,8 +14,9 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.JoinColumn;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Past;
-import java.util.Date;
+import java.time.LocalDate;
 import org.hibernate.validator.constraints.br.CPF;
 
 
@@ -29,7 +30,7 @@ public class Pessoa {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @NonNull
+    @NotEmpty
     private String nome;
 
     @CPF
@@ -39,7 +40,7 @@ public class Pessoa {
     @Past
     @NonNull
     @JsonFormat(pattern="dd-MM-yyyy")
-    private Date dataNascimento;
+    private LocalDate dataNascimento;
 
     @OneToOne
     @JoinColumn(name = "idConta", referencedColumnName = "id")
