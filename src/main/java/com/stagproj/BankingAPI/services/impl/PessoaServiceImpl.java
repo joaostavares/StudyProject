@@ -35,7 +35,8 @@ public class PessoaServiceImpl implements PessoaService {
             if (nonNull(pessoaRepository.findByCpf(pessoa.getCpf()))) {
                 throw new Exception("O Cpf inserido ja pertence a outro pessoa.");
             }
-            return pessoaRepository.save(pessoa);
+            pessoaRepository.save(pessoa);
+            return pessoa;
         }catch (Exception ee) {
             throw new Exception(ee.getMessage());
         }

@@ -1,8 +1,7 @@
 package com.stagproj.BankingAPI.controllers;
 
-import com.stagproj.BankingAPI.dtos.Reponse.PessoaResponse;
-import com.stagproj.BankingAPI.dtos.Reponse.TransacaoResponse;
-import com.stagproj.BankingAPI.dtos.Request.PessoaRequest;
+import com.stagproj.BankingAPI.dtos.reponse.PessoaResponse;
+import com.stagproj.BankingAPI.dtos.request.PessoaRequest;
 import com.stagproj.BankingAPI.entities.Pessoa;
 import com.stagproj.BankingAPI.services.PessoaService;
 import org.modelmapper.ModelMapper;
@@ -44,17 +43,17 @@ public class PessoaController {
     }
 
     @PostMapping
-    public ResponseEntity<PessoaResponse> post(@Valid @RequestBody PessoaRequest pessoaRequest) throws Exception {
+    public ResponseEntity<?> post(@Valid @RequestBody PessoaRequest pessoaRequest) throws Exception {
 
         Pessoa pessoa = modelMapper.map(pessoaRequest, Pessoa.class);
-        Pessoa criacao = pessoaService.criacaoDados(pessoa);
-        PessoaResponse pessoaResponse = modelMapper.map(criacao, PessoaResponse.class);
-
-        if (criacao == null) {
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-        }
-        else {
+        try {
+            Pessoa criacao = pessoaService.criacaoDados(pessoa);
+            PessoaResponse pessoaResponse = modelMapper.map(criacao, PessoaResponse.class);
             return new ResponseEntity<>(pessoaResponse, HttpStatus.CREATED);
+        }catch (Exception ee) {
+            return ResponseEntity.badRequest().body(ee.getMessage());
+            //return new ResponseEntity<>(ee.getMessage(), HttpStatus.BAD_REQUEST);  esse trecho de codigo precisa de refatoracao como um todo
         }
     }
+
 }

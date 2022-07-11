@@ -1,4 +1,4 @@
-package com.stagproj.BankingAPI.dtos.Reponse;
+package com.stagproj.BankingAPI.dtos.reponse;
 
 import lombok.Getter;
 import lombok.Setter;

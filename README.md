@@ -1,3 +1,10 @@
+<div>
+  <p>
+    <img src= "https://img.shields.io/badge/spring-%236DB33F.svg?style=for-the-badge&logo=spring&logoColor=white"/>
+    <img src= "https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=java&logoColor=white"/>
+  </p>
+</div>
+
 # Banking API
 
 A simple Spring Boot project of a simple banking api <br>

@@ -1,4 +1,4 @@
-package com.stagproj.BankingAPI.dtos.Request;
+package com.stagproj.BankingAPI.dtos.request;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
