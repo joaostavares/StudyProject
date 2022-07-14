@@ -43,7 +43,7 @@ public class PessoaController {
     }
 
     @PostMapping
-    public ResponseEntity<?> post(@Valid @RequestBody PessoaRequest pessoaRequest) throws Exception {
+    public ResponseEntity<?> post(@Valid @RequestBody PessoaRequest pessoaRequest) {
 
         Pessoa pessoa = modelMapper.map(pessoaRequest, Pessoa.class);
         try {
@@ -52,7 +52,6 @@ public class PessoaController {
             return new ResponseEntity<>(pessoaResponse, HttpStatus.CREATED);
         }catch (Exception ee) {
             return ResponseEntity.badRequest().body(ee.getMessage());
-            //return new ResponseEntity<>(ee.getMessage(), HttpStatus.BAD_REQUEST);  esse trecho de codigo precisa de refatoracao como um todo
         }
     }
 

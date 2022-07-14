@@ -14,6 +14,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.OneToOne;
 import javax.persistence.CascadeType;
+import javax.validation.constraints.NotEmpty;
 import java.time.LocalDate;
 
 @Data
@@ -25,16 +26,16 @@ public class Conta {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NonNull
+    @NotEmpty (message = "O saldo não pode ser vazio")
     private double saldo;
 
-    @NonNull
+    @NotEmpty (message = "O Limite de saque diario não pode ser vazio")
     private double limiteSaqueDiario;
 
     @NonNull
     private boolean flagAtivo;
 
-    @NonNull
+    @NotEmpty (message = "O tipo da conta não pode ser vazio")
     private int tipoConta;
 
     @NonNull
