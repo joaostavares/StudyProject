@@ -7,6 +7,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
+import org.hibernate.validator.constraints.Range;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -14,7 +15,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.OneToOne;
 import javax.persistence.CascadeType;
-import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 
 @Data
@@ -26,19 +28,19 @@ public class Conta {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotEmpty (message = "O saldo não pode ser vazio")
+    @NonNull
     private double saldo;
 
-    @NotEmpty (message = "O Limite de saque diario não pode ser vazio")
+    @Min(value = 10, message = "O limite de saque minimo deve ser de 10")
     private double limiteSaqueDiario;
 
     @NonNull
     private boolean flagAtivo;
 
-    @NotEmpty (message = "O tipo da conta não pode ser vazio")
+    @Range(min = 1, max = 9, message = "O tipo da conta deve ser entre 1 e 9")
     private int tipoConta;
 
-    @NonNull
+    @NotNull
     @JsonFormat(pattern="dd-MM-yyyy")
     private LocalDate dataCriacao;
 
