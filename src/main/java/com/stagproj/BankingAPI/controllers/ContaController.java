@@ -1,7 +1,7 @@
 package com.stagproj.BankingAPI.controllers;
 
-import com.stagproj.BankingAPI.dtos.reponse.ContaResponse;
-import com.stagproj.BankingAPI.dtos.request.ContaRequest;
+import com.stagproj.BankingAPI.dtos.reponses.ContaResponse;
+import com.stagproj.BankingAPI.dtos.requests.ContaRequest;
 import com.stagproj.BankingAPI.entities.Conta;
 import com.stagproj.BankingAPI.services.ContaService;
 import org.modelmapper.ModelMapper;
