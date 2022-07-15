@@ -15,17 +15,17 @@ import java.time.LocalDate;
 @Setter
 public class PessoaRequest {
 
-    @NotEmpty(message = "O nome deve ser preenchido")
+    @NotEmpty(message = "{pessoa.nome}")
     private String nome;
 
-    @CPF(message = "CPF invalido")
+    @CPF(message = "{pessoa.cpf}")
     private String cpf;
 
     @Past
-    @NotNull(message = "A data de nascimento deve ser preenchida")
+    @NotNull(message = "{pessoa.data}")
     @JsonFormat(pattern="dd-MM-yyyy")
     private LocalDate dataNascimento;
 
-    @Min(value = 1, message = "O id da conta deve ser inserido")
+    @Min(value = 1, message = "{pessoa.conta}")
     private long idConta;
 }

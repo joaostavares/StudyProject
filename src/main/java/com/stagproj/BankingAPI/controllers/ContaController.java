@@ -1,20 +1,16 @@
 package com.stagproj.BankingAPI.controllers;
 
+import com.stagproj.BankingAPI.dtos.reponse.ContaResponse;
+import com.stagproj.BankingAPI.dtos.request.ContaRequest;
 import com.stagproj.BankingAPI.entities.Conta;
 import com.stagproj.BankingAPI.services.ContaService;
+import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-
-import java.util.List;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 
 
 @RestController
@@ -22,9 +18,11 @@ import javax.validation.Valid;
 public class ContaController {
 
     private final ContaService contaService;
+    private final ModelMapper modelMapper;
 
-    public ContaController(ContaService contaService) {
+    public ContaController(ContaService contaService, ModelMapper modelMapper) {
         this.contaService = contaService;
+        this.modelMapper = modelMapper;
     }
 
     @GetMapping
@@ -40,9 +38,12 @@ public class ContaController {
     }
 
     @PostMapping
-    public ResponseEntity<Conta> post(@Valid @RequestBody Conta conta) {
+    public ResponseEntity<ContaResponse> post(@Valid @RequestBody ContaRequest contaRequest) {
+        Conta conta = modelMapper.map(contaRequest, Conta.class);
         Conta criacao = contaService.criacaoConta(conta);
-        return new ResponseEntity<>(criacao, (criacao == null ? HttpStatus.BAD_REQUEST : HttpStatus.CREATED ));
+        ContaResponse contaResponse = modelMapper.map(criacao, ContaResponse.class);
+
+        return new ResponseEntity<>(contaResponse, (criacao == null ? HttpStatus.BAD_REQUEST : HttpStatus.CREATED ));
     }
 
     @GetMapping("/saldo/{id}")
