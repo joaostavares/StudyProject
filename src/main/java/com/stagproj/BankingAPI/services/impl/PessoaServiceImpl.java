@@ -36,6 +36,9 @@ public class PessoaServiceImpl implements PessoaService {
     public Pessoa criacaoDados(Pessoa pessoa) {
         Conta conta = pessoa.getConta();
         try {
+            if (nonNull(pessoaRepository.findByConta_Id(conta.getId()))) {
+                throw new Exception("Essa conta já contem dados pessoais");
+            }
             if (isNull(contaService.getConta(conta.getId()))) {
                 throw new Exception("A conta não existe.");
             }

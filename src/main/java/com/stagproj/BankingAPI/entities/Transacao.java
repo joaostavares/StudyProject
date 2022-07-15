@@ -1,6 +1,5 @@
 package com.stagproj.BankingAPI.entities;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -23,7 +22,6 @@ public class Transacao {
     private double valor;
 
     @NonNull
-    @JsonFormat(pattern="dd-MM-yyyy")
     private LocalDate dataTransacao;
 
     @ManyToOne
