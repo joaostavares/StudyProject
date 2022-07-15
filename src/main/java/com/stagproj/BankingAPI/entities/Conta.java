@@ -7,12 +7,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.OneToOne;
-import javax.persistence.CascadeType;
+import javax.persistence.*;
+import java.time.LocalDate;
 
 @Data
 @NoArgsConstructor
@@ -36,7 +32,7 @@ public class Conta {
     private int tipoConta;
 
     @NonNull
-    private String dataCriacao;
+    private LocalDate dataCriacao;
 
     @OneToOne(mappedBy = "conta", cascade = CascadeType.ALL)
     @JsonBackReference

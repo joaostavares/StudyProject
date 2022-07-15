@@ -1,3 +1,10 @@
+<div>
+  <p>
+    <img src= "https://img.shields.io/badge/spring-%236DB33F.svg?style=for-the-badge&logo=spring&logoColor=white" alt="Spring"/>
+    <img src= "https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=java&logoColor=white" alt="Java"/>
+  </p>
+</div>
+
 # Banking API
 
 A simple Spring Boot project of a simple banking api <br>
@@ -40,7 +47,7 @@ Example of the request body:
     "limiteSaqueDiario" : 10,
     "flagAtivo" : 0,
     "tipoConta" : 1,
-    "dataCriacao" : "09101998"
+    "dataCriacao" : "09-10-1998"
 }`
 
 <br> To make a deposit, make a Post Request at `localhost:8080/transacoes/deposito` :
@@ -49,7 +56,7 @@ Example of the request body:
 
 `{
     "valor" : 400,
-    "dataTransacao" : "09101998",
+    "dataTransacao" : "09-10-1998",
     "idConta" : 1
 }`
 
@@ -57,7 +64,7 @@ Example of the request body:
 
 `{
     "valor" : 50,
-    "dataTransacao" : "09101998",
+    "dataTransacao" : "09-10-1998",
     "idConta" : 1 
 }`
 

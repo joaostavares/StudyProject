@@ -13,7 +13,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"saldo\" : 100,\r\n    \"limiteSaqueDiario\" : 10,\r\n    \"flagAtivo\" : 0,\r\n    \"tipoConta\" : 1,\r\n    \"dataCriacao\" : \"09101998\"\r\n}",
+					"raw": "{\r\n    \"saldo\" : 10,\r\n    \"limiteSaqueDiario\" : 10,\r\n    \"flagAtivo\" : 0,\r\n    \"tipoConta\" : 1,\r\n    \"dataCriacao\" : \"31-12-1998\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -40,7 +40,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"nome\" : \"jão\",\r\n    \"cpf\" : \"666\",\r\n    \"dataNascimento\" : \"09101998\",\r\n    \"idConta\" : 1\r\n}",
+					"raw": "{\r\n    \"nome\" : \"Jão\",\r\n    \"cpf\" : \"93854627092\",\r\n    \"dataNascimento\" : \"09-10-1998\",\r\n    \"idConta\" : 1\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -67,7 +67,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"valor\" : 400,\r\n    \"dataTransacao\" : \"09101998\",\r\n    \"idConta\" : 1\r\n}",
+					"raw": "{\r\n    \"valor\" : 100,\r\n    \"dataTransacao\" : \"09-10-1998\",\r\n    \"idConta\" : 1\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -115,7 +115,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"valor\" : 50,\r\n    \"dataTransacao\" : \"09101998\",\r\n    \"idConta\" : 1\r\n}",
+					"raw": "{\r\n    \"valor\" : 50,\r\n    \"dataTransacao\" : \"09-10-1998\",\r\n    \"idConta\" : 1\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"

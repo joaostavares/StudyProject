@@ -8,5 +8,5 @@ public interface PessoaService {
 
     Pessoa getPessoa(long id);
 
-    Pessoa criacaoDados(Pessoa pessoa);
+    Pessoa criacaoDados(Pessoa pessoa) throws Exception;
 }
