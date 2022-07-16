@@ -1,4 +1,4 @@
-package com.stagproj.BankingAPI.dtos.reponse;
+package com.stagproj.BankingAPI.dtos.reponses;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Getter;

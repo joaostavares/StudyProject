@@ -1,7 +1,7 @@
 package com.stagproj.BankingAPI.controllers;
 
-import com.stagproj.BankingAPI.dtos.reponse.PessoaResponse;
-import com.stagproj.BankingAPI.dtos.request.PessoaRequest;
+import com.stagproj.BankingAPI.dtos.reponses.PessoaResponse;
+import com.stagproj.BankingAPI.dtos.requests.PessoaRequest;
 import com.stagproj.BankingAPI.entities.Pessoa;
 import com.stagproj.BankingAPI.services.PessoaService;
 import org.modelmapper.ModelMapper;

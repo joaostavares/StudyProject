@@ -1,7 +1,7 @@
 package com.stagproj.BankingAPI.controllers;
 
-import com.stagproj.BankingAPI.dtos.reponse.TransacaoResponse;
-import com.stagproj.BankingAPI.dtos.request.TransacaoRequest;
+import com.stagproj.BankingAPI.dtos.reponses.TransacaoResponse;
+import com.stagproj.BankingAPI.dtos.requests.TransacaoRequest;
 import com.stagproj.BankingAPI.entities.Transacao;
 import com.stagproj.BankingAPI.services.TransacaoService;
 import org.modelmapper.ModelMapper;
