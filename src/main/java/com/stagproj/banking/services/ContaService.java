@@ -10,4 +10,6 @@ public interface ContaService {
     Conta criacaoConta(Conta conta);
 
     Conta bloqueioConta(long id);
+
+    Boolean getAtividade(long id);
 }

@@ -4,12 +4,12 @@ import com.stagproj.banking.dtos.reponses.PessoaResponse;
 import com.stagproj.banking.dtos.requests.PessoaRequest;
 import com.stagproj.banking.entities.Pessoa;
 import com.stagproj.banking.services.PessoaService;
+import jakarta.validation.Valid;
 import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -37,16 +37,12 @@ public class PessoaController {
     }
 
     @PostMapping
-    public ResponseEntity<PessoaResponse> post(@Valid @RequestBody PessoaRequest pessoaRequest) {
+    public ResponseEntity<PessoaResponse> post(@Valid @RequestBody PessoaRequest pessoaRequest) throws Exception {
 
         Pessoa pessoa = modelMapper.map(pessoaRequest, Pessoa.class);
-        try {
-            Pessoa criacao = pessoaService.criacaoDados(pessoa);
-            PessoaResponse pessoaResponse = modelMapper.map(criacao, PessoaResponse.class);
-            return new ResponseEntity<>(pessoaResponse, HttpStatus.CREATED);
-        }catch (Exception ee) {
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-        }
+        Pessoa criacao = pessoaService.criacaoDados(pessoa);
+        PessoaResponse pessoaResponse = modelMapper.map(criacao, PessoaResponse.class);
+        return new ResponseEntity<>(pessoaResponse, (criacao != null ? HttpStatus.OK : HttpStatus.NOT_FOUND));
     }
 
 }

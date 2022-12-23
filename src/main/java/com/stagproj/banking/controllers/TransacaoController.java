@@ -4,12 +4,12 @@ import com.stagproj.banking.dtos.reponses.TransacaoResponse;
 import com.stagproj.banking.dtos.requests.TransacaoRequest;
 import com.stagproj.banking.entities.Transacao;
 import com.stagproj.banking.services.TransacaoService;
+import jakarta.validation.Valid;
 import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -26,7 +26,7 @@ public class TransacaoController {
     @GetMapping("/extrato/{id}")
     public ResponseEntity<List<Transacao>> extrato(@PathVariable long id) {
         List<Transacao> extrato = transacaoService.extrato(id);
-        return new ResponseEntity<>(extrato, (extrato != null ? HttpStatus.OK : HttpStatus.NOT_FOUND));
+        return new ResponseEntity<>(extrato, (!extrato.isEmpty() ? HttpStatus.OK : HttpStatus.NOT_FOUND));
     }
 
     @PostMapping(value = "/deposito")
