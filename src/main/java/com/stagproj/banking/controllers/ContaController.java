@@ -4,12 +4,12 @@ import com.stagproj.banking.dtos.reponses.ContaResponse;
 import com.stagproj.banking.dtos.requests.ContaRequest;
 import com.stagproj.banking.entities.Conta;
 import com.stagproj.banking.services.ContaService;
+import jakarta.validation.Valid;
 import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
 import java.util.List;
 
 
@@ -65,7 +65,8 @@ public class ContaController {
 
     @GetMapping("/atividade/{id}")
     public ResponseEntity<Boolean> checagemDeTravamento(@PathVariable long id) {
-        Conta atividade = contaService.getConta(id);
-        return new ResponseEntity<>(atividade != null ? HttpStatus.OK : HttpStatus.NOT_FOUND);
+        Boolean atividade = contaService.getAtividade(id);
+        return new ResponseEntity<>(atividade, atividade != null ? HttpStatus.OK : HttpStatus.NOT_FOUND);
+
     }
 }
