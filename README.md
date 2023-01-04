@@ -9,7 +9,7 @@
 
 A simple Spring Boot project of a simple banking api <br>
 
-Project done during the internship program, which tends to receive evolutions later <br>
+Project done for study, which tends to receive evolutions later <br>
 
 **Proposed activities:**<br>
 
