@@ -38,7 +38,7 @@ Import Postman presets on `Bank Project.postman_collection.json` and use pre-mad
 <br>**OR**<br>
 <br>Open `localhost:8080/swagger` to check all requests.<br><br>
 
-#### Here's an example of a request to create and account:
+#### Here's an example of a request to create an account:
 
 <br>Post request to `localhost:8080/contas` with JSON body: <br>
 
