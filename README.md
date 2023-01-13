@@ -9,7 +9,7 @@
 
 A simple Spring Boot project of a simple banking api <br>
 
-Project done during the internship program, which tends to receive evolutions later <br>
+Project executed to study Spring Boot and the creation of API'S REST <br>
 
 **Proposed activities:**<br>
 
