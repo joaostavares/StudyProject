@@ -26,7 +26,7 @@ Project executed to study Spring Boot and the creation of API'S REST <br>
 * JDK 19
 * Maven 3.8.1
 * An IDE *( I used Intellij IDEA )*
-* Postman Api Platform *( Just to test the requests, another one of the kind can be used. )*
+* Postman Api Platform *( Just to test the requests, another one of the kind can be used.)*
 <br> <br>
 
 
@@ -36,50 +36,23 @@ After cloning the project, access the project through the IDE and run it.
 
 Import Postman presets on `Bank Project.postman_collection.json` and use pre-made requests.
 
-<br> **OR** <br>
+**OR**
+<br>Open `localhost:8080/swagger` to check all requests.<br><br>
 
-<br> Create a new account in H2 DataBase with a Post Request on `localhost:8080/contas`:
+#### Here's an example of a request to create and account:
 
-Example of the request body:
+<p>Post request to `localhost:8080/contas` with JSON body:
 
-`{
-    "saldo" : 100,
-    "limiteSaqueDiario" : 10,
-    "flagAtivo" : 0,
-    "tipoConta" : 1,
-    "dataCriacao" : "09-10-1998"
-}`
 
-<br> To make a deposit, make a Post Request at `localhost:8080/transacoes/deposito` :
-
-Example of the request body:
-
-`{
-    "valor" : 400,
-    "dataTransacao" : "09-10-1998",
-    "idConta" : 1
-}`
-
-<br> To make a withdrawal, make a Post Request at `localhost:8080/transacoes/saque` :
-
-`{
-    "valor" : 50,
-    "dataTransacao" : "09-10-1998",
-    "idConta" : 1 
-}`
-
-<br>To check the balance, make a Get Request at:
-
-`localhost:8080/contas/saldo/id` *( Change id to the id of the created account )*
-
-<br>To block the account, make a Put Request at:
-
-`localhost:8080/contas/travamento/id` *( Change id to the id of the created account )*
-
-<br>To get the account statement, make a Get Request at:
-
-`localhost:8080/trasacoes/extrato/id` *( Change id to the id of the created account )*
-
+```json
+{
+  "saldo" : 100,
+  "limiteSaqueDiario" : 10,
+  "flagAtivo" : 0,
+  "tipoConta" : 1,
+  "dataCriacao" : "09-10-1998"
+}
+```
 ### Comments: <br>
 
 You can check what is in the `bankingdb` database while executing project, accessing `localhost:8080/h2` and using these properties: <br> <br>
@@ -91,6 +64,6 @@ You can check what is in the `bankingdb` database while executing project, acces
 |  Password  |      PassCode98#      |
 
 
-<br>All of these properties can be changed in `resources/application. properties` <br>
+<br>All of these properties can be changed in `resources/application.properties` <br>
 
 ##### Database will run in memory, so it will be deleted when the project stop running. 
