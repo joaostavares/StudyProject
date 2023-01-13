@@ -9,6 +9,7 @@ import com.studyproj.banking.services.AccountService;
 import com.studyproj.banking.services.TransactionService;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import static java.util.Objects.isNull;
@@ -40,6 +41,7 @@ public class TransactionServiceImpl implements TransactionService {
         transaction.setOldBalance(account.getBalance());
         account.setBalance(account.getBalance() + transaction.getAmount());
         transaction.setNewBalance(account.getBalance());
+        transaction.setTransactionDate(LocalDate.now());
         transaction.setTransactionType("Deposit");
         transactionRepository.save(transaction);
         return transaction;
@@ -59,6 +61,7 @@ public class TransactionServiceImpl implements TransactionService {
         transaction.setOldBalance(account.getBalance());
         account.setBalance(account.getBalance() - transaction.getAmount());
         transaction.setNewBalance(account.getBalance());
+        transaction.setTransactionDate(LocalDate.now());
         transaction.setTransactionType("withdraw");
         transactionRepository.save(transaction);
         return transaction;

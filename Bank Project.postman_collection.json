@@ -67,7 +67,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"amount\" : 100,\r\n    \"transactionDate\" : \"09-10-1998\",\r\n    \"accountId\" : 1\r\n}",
+					"raw": "{\r\n    \"amount\" : 100,\r\n    \"accountId\" : 1\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -115,7 +115,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"amount\" : 50,\r\n    \"transactionDate\" : \"09-10-1998\",\r\n    \"accountId\" : 1\r\n}",
+					"raw": "{\r\n    \"amount\" : 50,\r\n    \"accountId\" : 1\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"

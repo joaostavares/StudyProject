@@ -12,6 +12,8 @@ import java.time.LocalDate;
 @Setter
 
 public class TransactionResponse {
+    @Schema(description = "Transaction ID generated automatically", example = "1")
+    private Long id;
 
     @Schema(description = "Transaction Type", example = "withdraw")
     private String transactionType;
@@ -26,7 +28,7 @@ public class TransactionResponse {
     private double newBalance;
 
     @Schema(description = "Transaction date", pattern = "dd-MM-yyyy")
-    @JsonFormat(pattern="dd-MM-yyyy")
+    @JsonFormat(pattern = "dd-MM-yyyy")
     private LocalDate transactionDate;
 
     @Schema(description = "Transaction account", example = "1")
