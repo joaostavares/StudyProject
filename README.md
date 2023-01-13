@@ -30,7 +30,7 @@ Project executed to study Spring Boot and the creation of API'S REST <br>
 <br> <br>
 
 
-### Instructions: <br>
+## Instructions: <br>
 
 After cloning the project, access the project through the IDE and run it.
 
@@ -38,7 +38,7 @@ Import Postman presets on `Bank Project.postman_collection.json` and use pre-mad
 <br>**OR**<br>
 <br>Open `localhost:8080/swagger` to check all requests.<br><br>
 
-#### Here's an example of a request to create an account:
+### Here's an example of a request to create an account:
 
 <br>Post request to `localhost:8080/contas` with JSON body: <br>
 
