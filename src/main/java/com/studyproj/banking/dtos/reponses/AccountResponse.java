@@ -18,7 +18,7 @@ public class AccountResponse {
     private double balance;
 
     @Schema(description = "Account status", example = "true")
-    private boolean flagged;
+    private boolean blocked;
 
     @Schema(description = "Account type", example = "1")
     private int accountType;

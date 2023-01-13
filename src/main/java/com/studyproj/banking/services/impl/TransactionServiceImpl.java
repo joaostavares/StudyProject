@@ -35,7 +35,7 @@ public class TransactionServiceImpl implements TransactionService {
         if (isNull(accountService.getAccount(account.getId()))) {
             throw new ExceptionMessage(ERROR);
         }
-        if (account.isFlagged()){
+        if (account.isBlocked()){
             throw new ExceptionMessage("Account is blocked.");
         }
         transaction.setOldBalance(account.getBalance());
@@ -52,7 +52,7 @@ public class TransactionServiceImpl implements TransactionService {
         if (isNull(accountService.getAccount(account.getId()))) {
             throw new ExceptionMessage(ERROR);
         }
-        if (account.isFlagged()){
+        if (account.isBlocked()){
             throw new ExceptionMessage("Account is blocked.");
         }
         if(account.getBalance() < transaction.getAmount()) {

@@ -13,7 +13,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"balance\" : 10,\r\n    \"flagged\" : 0,\r\n    \"accountType\" : 1,\r\n    \"creationDate\" : \"31-12-1998\"\r\n}",
+					"raw": "{\r\n    \"balance\" : 10,\r\n    \"accountType\" : 1\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -89,26 +89,6 @@
 			"response": []
 		},
 		{
-			"name": "Check Balance",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "localhost:8080/account/balance/1",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"account",
-						"balance",
-						"1"
-					]
-				}
-			},
-			"response": []
-		},
-		{
 			"name": "Withdraw",
 			"request": {
 				"method": "POST",
@@ -131,6 +111,26 @@
 					"path": [
 						"transaction",
 						"withdraw"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Check Balance",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/account/balance/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"account",
+						"balance",
+						"1"
 					]
 				}
 			},

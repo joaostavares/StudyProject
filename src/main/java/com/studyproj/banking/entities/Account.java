@@ -27,7 +27,7 @@ public class Account {
 
     @Schema(description = "Account status", example = "true")
     @NonNull
-    private boolean flagged;
+    private boolean blocked;
 
     @Schema(description = "Account type", example = "1")
     @NonNull
