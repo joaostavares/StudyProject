@@ -82,4 +82,15 @@ Example of the request body:
 
 ### Comments: <br>
 
-You can check what is in the `testdb` database from `localhost:8080/h2` with username: `sa` and password: `password` and these properties can be changed in `resources/application. properties`
+You can check what is in the `banking db` database while running project acessing `localhost:8080/h2` and using these properties <br>
+
+| *Property* |        *Value*        |
+|:----------:|:---------------------:|
+|  JDBC URL  | jdbc:h2:mem:bankingdb |
+|  Username  |         root          |
+|  Password  |      PassCode98#      |
+
+
+All of these properties can be changed in `resources/application. properties` <br>
+
+##### Database will run in memory, so it will be deleted when the project stop running. 
