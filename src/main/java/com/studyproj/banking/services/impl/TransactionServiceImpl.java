@@ -34,6 +34,9 @@ public class TransactionServiceImpl implements TransactionService {
         if (isNull(accountService.getAccount(account.getId()))) {
             throw new ExceptionMessage(ERROR);
         }
+        if (account.isFlagged()){
+            throw new ExceptionMessage("Account is blocked.");
+        }
         transaction.setOldBalance(account.getBalance());
         account.setBalance(account.getBalance() + transaction.getAmount());
         transaction.setNewBalance(account.getBalance());
@@ -46,6 +49,9 @@ public class TransactionServiceImpl implements TransactionService {
         Account account = accountRepository.getReferenceById(transaction.getAccount().getId());
         if (isNull(accountService.getAccount(account.getId()))) {
             throw new ExceptionMessage(ERROR);
+        }
+        if (account.isFlagged()){
+            throw new ExceptionMessage("Account is blocked.");
         }
         if(account.getBalance() < transaction.getAmount()) {
             throw new ExceptionMessage("Insufficient funds.");
@@ -63,6 +69,6 @@ public class TransactionServiceImpl implements TransactionService {
         if (isNull(accountService.getAccount(account.getId()))) {
             throw new ExceptionMessage(ERROR);
         }
-        return transactionRepository.streamTransactionsByAccount(account);
+        return transactionRepository.findByAccount(account);
     }
 }

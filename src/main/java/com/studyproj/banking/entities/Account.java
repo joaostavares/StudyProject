@@ -1,6 +1,5 @@
 package com.studyproj.banking.entities;
 
-
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
@@ -10,7 +9,8 @@ import lombok.NoArgsConstructor;
 import lombok.NonNull;
 
 import java.time.LocalDate;
-@Schema(name = "Account",description = "Transaction Model")
+
+@Schema(name = "Account",description = "Account Model")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

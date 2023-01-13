@@ -4,6 +4,7 @@ import com.studyproj.banking.dtos.reponses.TransactionResponse;
 import com.studyproj.banking.dtos.requests.TransactionRequest;
 import com.studyproj.banking.entities.Transaction;
 import com.studyproj.banking.services.TransactionService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@Tag(name = "Transaction", description = "Transaction Controller")
 @RestController
 @RequestMapping("/transaction")
 public class TransactionController {

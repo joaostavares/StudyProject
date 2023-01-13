@@ -4,14 +4,12 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Pattern;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.NonNull;
+import lombok.*;
+
 
 import java.time.LocalDate;
 
-@Schema(description = "Transaction Model")
+@Schema(name = "Transaction Entity", description = "Transaction Model")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -35,9 +33,11 @@ public class Transaction {
     private String transactionType;
 
     @Schema(description = "Balance Before Transaction", example = "100.0")
+    @NonNull
     private double oldBalance;
 
     @Schema(description = "Balance After Transaction", example = "100.0")
+    @NonNull
     private double newBalance;
 
     @ManyToOne

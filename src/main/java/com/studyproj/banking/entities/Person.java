@@ -10,7 +10,6 @@ import lombok.NonNull;
 
 import java.time.LocalDate;
 
-
 @Schema(name = "Person",description = "Person Model")
 @Data
 @NoArgsConstructor

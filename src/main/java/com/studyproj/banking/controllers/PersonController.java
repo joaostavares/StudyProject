@@ -5,6 +5,7 @@ import com.studyproj.banking.dtos.requests.PersonRequest;
 import com.studyproj.banking.entities.Person;
 import com.studyproj.banking.exceptions.ExceptionMessage;
 import com.studyproj.banking.services.PersonService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@Tag(name = "Person", description = "Person Controller")
 @RestController
 @RequestMapping("/person")
 public class PersonController {

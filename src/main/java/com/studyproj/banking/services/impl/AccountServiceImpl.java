@@ -36,10 +36,27 @@ public class AccountServiceImpl implements AccountService {
 
     public Account blockAccount(long id) {
         Account account = getAccount(id);
-        if (account != null && !account.isFlagged()) {
-            account.setFlagged(true);
-            accountRepository.save(account);
+        if (isNull(account)) {
+            throw new ExceptionMessage("Account not found");
         }
+        if (account.isFlagged()) {
+            throw new ExceptionMessage("Account already blocked");
+        }
+        account.setFlagged(true);
+        accountRepository.save(account);
+        return account;
+    }
+
+    public Account unblockAccount(long id) {
+        Account account = getAccount(id);
+        if (isNull(account)) {
+            throw new ExceptionMessage("Account not found");
+        }
+        if (!account.isFlagged()) {
+            throw new ExceptionMessage("Account already unblocked");
+        }
+        account.setFlagged(false);
+        accountRepository.save(account);
         return account;
     }
 

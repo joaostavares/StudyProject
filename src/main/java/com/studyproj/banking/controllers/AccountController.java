@@ -64,6 +64,12 @@ public class AccountController {
         return new ResponseEntity<>(blockAccount != null ? HttpStatus.OK : HttpStatus.NOT_FOUND);
     }
 
+    @PutMapping(value = "/unblock/{id}")
+    public ResponseEntity<HttpStatus> unblock(@PathVariable long id) {
+        Account unblockAccount = accountService.unblockAccount(id);
+        return new ResponseEntity<>(unblockAccount != null ? HttpStatus.OK : HttpStatus.NOT_FOUND);
+    }
+
     @GetMapping("/activity/{id}")
     public ResponseEntity<Boolean> activityCheck(@PathVariable long id) {
         Boolean activity = accountService.getActivity(id);

@@ -40,16 +40,15 @@ Import Postman presets on `Bank Project.postman_collection.json` and use pre-mad
 
 ### Here's an example of a request to create an account:
 
-<br>Post request to `localhost:8080/contas` with JSON body: <br>
+<br>Post request to `localhost:8080/account` with JSON body: <br>
 
 
 ```json
 {
-  "saldo" : 100,
-  "limiteSaqueDiario" : 10,
-  "flagAtivo" : 0,
-  "tipoConta" : 1,
-  "dataCriacao" : "09-10-1998"
+  "balance" : 10,
+  "flagged" : 0,
+  "accountType" : 1,
+  "creationDate" : "31-12-1998"
 }
 ```
 ### Additional Information: <br>
