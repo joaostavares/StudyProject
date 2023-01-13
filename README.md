@@ -26,7 +26,7 @@ Project executed to study Spring Boot and the creation of API'S REST <br>
 * JDK 19
 * Maven 3.8.1
 * An IDE *( I used Intellij IDEA )*
-* Postman Api Platform *( Just to test the requests, another one of the kind can be used.)*
+* Postman Api Platform *( You can use Insomnia, or any other API testing tool)*
 <br> <br>
 
 
@@ -34,10 +34,8 @@ Project executed to study Spring Boot and the creation of API'S REST <br>
 
 After cloning the project, access the project through the IDE and run it.
 
-Import Postman presets on `Bank Project.postman_collection.json` and use pre-made requests.
-
-**OR**
-
+Import Postman presets on `Bank Project.postman_collection.json` and use pre-made requests.<br>
+<br>**OR**<br>
 <br>Open `localhost:8080/swagger` to check all requests.<br><br>
 
 #### Here's an example of a request to create and account:
@@ -54,7 +52,7 @@ Import Postman presets on `Bank Project.postman_collection.json` and use pre-mad
   "dataCriacao" : "09-10-1998"
 }
 ```
-### Comments: <br>
+### Additional Information: <br>
 
 You can check what is in the `bankingdb` database while executing project, accessing `localhost:8080/h2` and using these properties: <br> <br>
 
