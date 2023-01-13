@@ -6,6 +6,7 @@ import com.studyproj.banking.repositories.AccountRepository;
 import com.studyproj.banking.services.AccountService;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -30,6 +31,8 @@ public class AccountServiceImpl implements AccountService {
     }
 
     public Account createAccount(Account account) {
+        account.setCreationDate(LocalDate.now());
+        account.setBlocked(false);
         accountRepository.save(account);
         return account;
     }
@@ -39,10 +42,10 @@ public class AccountServiceImpl implements AccountService {
         if (isNull(account)) {
             throw new ExceptionMessage("Account not found");
         }
-        if (account.isFlagged()) {
+        if (account.isBlocked()) {
             throw new ExceptionMessage("Account already blocked");
         }
-        account.setFlagged(true);
+        account.setBlocked(true);
         accountRepository.save(account);
         return account;
     }
@@ -52,10 +55,10 @@ public class AccountServiceImpl implements AccountService {
         if (isNull(account)) {
             throw new ExceptionMessage("Account not found");
         }
-        if (!account.isFlagged()) {
+        if (!account.isBlocked()) {
             throw new ExceptionMessage("Account already unblocked");
         }
-        account.setFlagged(false);
+        account.setBlocked(false);
         accountRepository.save(account);
         return account;
     }
@@ -65,7 +68,7 @@ public class AccountServiceImpl implements AccountService {
         if (isNull(account)) {
             throw new ExceptionMessage("The account does not exist.");
         }
-        return account.isFlagged();
+        return account.isBlocked();
 
     }
 }
