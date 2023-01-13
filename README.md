@@ -82,7 +82,7 @@ Example of the request body:
 
 ### Comments: <br>
 
-You can check what is in the `banking db` database while running project acessing `localhost:8080/h2` and using these properties <br>
+You can check what is in the `banking db` database while executing project, accessing `localhost:8080/h2` and using these properties: <br> <br>
 
 | *Property* |        *Value*        |
 |:----------:|:---------------------:|
@@ -91,6 +91,6 @@ You can check what is in the `banking db` database while running project acessin
 |  Password  |      PassCode98#      |
 
 
-All of these properties can be changed in `resources/application. properties` <br>
+<br>All of these properties can be changed in `resources/application. properties` <br>
 
 ##### Database will run in memory, so it will be deleted when the project stop running. 
