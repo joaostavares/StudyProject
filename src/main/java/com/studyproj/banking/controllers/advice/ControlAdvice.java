@@ -20,30 +20,30 @@ public class ControlAdvice {
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ResponseBody
     public ApiErrors handleExceptionMethod(ExceptionMessage ex) {
-        String mensagem = ex.getMessage();
-        return new ApiErrors(mensagem);
+        String message = ex.getMessage();
+        return new ApiErrors(message);
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ResponseBody
     public ApiErrors handleMethodNotValidException(MethodArgumentNotValidException ex) {
-        List<String> erros = ex.getBindingResult()
+        List<String> errors = ex.getBindingResult()
                 .getAllErrors()
                 .stream()
                 .map(DefaultMessageSourceResolvable::getDefaultMessage)
                 .toList();
 
-        return new ApiErrors(erros);
+        return new ApiErrors(errors);
 
     }
 
     @ExceptionHandler(HttpMessageNotReadableException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ResponseBody
-    public ApiErrors handleDefaulHandleExceptionResolver(HttpMessageNotReadableException ex) {
-        String mensagem = ex.getMessage();
-        return new ApiErrors(mensagem);
+    public ApiErrors handleDefaultExceptionResolver(HttpMessageNotReadableException ex) {
+        String message = ex.getMessage();
+        return new ApiErrors(message);
     }
 }
 

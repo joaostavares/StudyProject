@@ -1,9 +1,9 @@
 package com.studyproj.banking.repositories;
 
-import com.studyproj.banking.entities.Conta;
+import com.studyproj.banking.entities.Account;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface ContaRepository extends JpaRepository<Conta, Long> {
+public interface AccountRepository extends JpaRepository<Account, Long> {
 }

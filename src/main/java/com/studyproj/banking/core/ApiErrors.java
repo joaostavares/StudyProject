@@ -1,11 +1,13 @@
 package com.studyproj.banking.core;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Getter;
 
 import java.util.Collections;
 import java.util.List;
 
 public class ApiErrors {
+    @Schema(description = "List of validation errors")
     @Getter
     private final List<String> errors;
 
@@ -13,7 +15,7 @@ public class ApiErrors {
         this.errors = errors;
     }
 
-    public ApiErrors(String mensagem){
-        this.errors = Collections.singletonList(mensagem);
+    public ApiErrors(String message){
+        this.errors = Collections.singletonList(message);
     }
 }
