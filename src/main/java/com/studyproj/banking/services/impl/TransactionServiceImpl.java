@@ -72,6 +72,6 @@ public class TransactionServiceImpl implements TransactionService {
         if (isNull(accountService.getAccount(account.getId()))) {
             throw new ExceptionMessage(ERROR);
         }
-        return transactionRepository.findByAccount(account);
+        return transactionRepository.findAllByAccountId(id);
     }
 }

@@ -24,34 +24,27 @@ class AccountServiceImplTests {
     void setUp() {
         accountRepository = Mockito.mock(AccountRepository.class);
         accountService = new AccountServiceImpl(accountRepository);
-
     }
 
     @Test
     void getsuccessGetAllAccounts() {
         Account account1 = mock(Account.class);
-        account1.setBalance(Mockito.anyDouble());
-        account1.setAccountType(Mockito.anyInt());
-
         Account account2 = mock(Account.class);
-        account2.setBalance(Mockito.anyDouble());
-        account2.setAccountType(Mockito.anyInt());
 
         when(accountService.getAll()).thenReturn(List.of(account1, account2));
 
         Assertions.assertDoesNotThrow(() -> accountService.getAll());
-        Assertions.assertNotEquals(0, accountService.getAll().size());
+        Assertions.assertEquals(2, accountService.getAll().size());
     }
 
     @Test
     void getSuccessAccountById() {
         Account account = mock(Account.class);
-        account.setBalance(Mockito.anyDouble());
-        account.setAccountType(Mockito.anyInt());
 
         when(accountRepository.findById(Mockito.anyLong())).thenReturn(java.util.Optional.of(account));
 
         Assertions.assertDoesNotThrow(() -> accountService.getAccount(Mockito.anyLong()));
+        Assertions.assertEquals(account, accountService.getAccount(Mockito.anyLong()));
     }
 
     @Test
