@@ -63,7 +63,7 @@ public class AccountServiceImpl implements AccountService {
         return account;
     }
 
-    public Boolean getActivity(long id) {
+    public Boolean getBlockedStatus(long id) {
         Account account = getAccount(id);
         if (isNull(account)) {
             throw new ExceptionMessage("The account does not exist.");

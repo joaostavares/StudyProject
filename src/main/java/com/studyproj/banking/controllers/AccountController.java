@@ -70,9 +70,9 @@ public class AccountController {
         return new ResponseEntity<>(unblockAccount != null ? HttpStatus.OK : HttpStatus.NOT_FOUND);
     }
 
-    @GetMapping("/activity/{id}")
+    @GetMapping("/isblocked/{id}")
     public ResponseEntity<Boolean> activityCheck(@PathVariable long id) {
-        Boolean activity = accountService.getActivity(id);
+        Boolean activity = accountService.getBlockedStatus(id);
         return new ResponseEntity<>(activity, activity != null ? HttpStatus.OK : HttpStatus.NOT_FOUND);
 
     }

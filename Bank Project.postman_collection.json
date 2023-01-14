@@ -191,14 +191,14 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/account/activity/1",
+					"raw": "localhost:8080/account/isblocked/1",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
 						"account",
-						"activity",
+						"isblocked",
 						"1"
 					]
 				}
