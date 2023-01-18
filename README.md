@@ -1,3 +1,4 @@
+### [Automated tests are being developed and are on the dev branch] <br>
 <div>
   <p>
     <img src= "https://img.shields.io/badge/spring-%236DB33F.svg?style=for-the-badge&logo=spring&logoColor=white" alt="Spring"/>
@@ -5,7 +6,7 @@
   </p>
 </div>
 
-# Banking API
+# Banking API 
 
 A simple Spring Boot project of a simple banking api <br>
 
