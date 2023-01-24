@@ -1,4 +1,3 @@
-### [Automated tests are being developed and are on the dev branch] <br>
 <div>
   <p>
     <img src= "https://img.shields.io/badge/spring-%236DB33F.svg?style=for-the-badge&logo=spring&logoColor=white" alt="Spring"/>
@@ -47,9 +46,7 @@ Import Postman presets on `Bank Project.postman_collection.json` and use pre-mad
 ```json
 {
   "balance" : 10,
-  "flagged" : 0,
-  "accountType" : 1,
-  "creationDate" : "31-12-1998"
+  "accountType" : 1
 }
 ```
 ### Additional Information: <br>
