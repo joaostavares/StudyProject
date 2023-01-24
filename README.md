@@ -7,7 +7,7 @@
 
 # Banking API 
 
-A simple Spring Boot project of a simple banking api <br>
+A simple Spring Boot project of a simple banking API <br>
 
 Project executed to study Spring Boot and the creation of API'S REST <br>
 
