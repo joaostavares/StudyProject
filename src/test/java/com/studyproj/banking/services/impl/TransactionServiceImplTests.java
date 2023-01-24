@@ -38,6 +38,123 @@ class TransactionServiceImplTests {
     }
 
     @Test
+    void getSuccessWhenDeposit() {
+        Account account = new Account();
+        account.setId(1L);
+        account.setBalance(11000.0);
+
+        Transaction transaction = new Transaction();
+        transaction.setAmount(1000.0);
+        transaction.setAccount(account);
+
+        when(accountRepository.getReferenceById(Mockito.anyLong())).thenReturn(account);
+        when(accountRepository.findById(Mockito.anyLong())).thenReturn(java.util.Optional.of(account));
+        when(transactionRepository.save(Mockito.any(Transaction.class))).thenReturn(transaction);
+
+        Assertions.assertDoesNotThrow(() -> transactionService.deposit(transaction));
+
+    }
+
+    @Test
+    void getNonExistingAccountWhenDeposit() {
+        Account account = new Account();
+        account.setId(1L);
+        account.setBalance(11000.0);
+
+        Transaction transaction = new Transaction();
+        transaction.setAmount(1000.0);
+        transaction.setAccount(account);
+
+        when(accountRepository.getReferenceById(Mockito.anyLong())).thenReturn(account);
+        when(accountRepository.findById(Mockito.anyLong())).thenReturn(java.util.Optional.empty());
+
+        Assertions.assertThrowsExactly(ExceptionMessage.class, () -> transactionService.deposit(transaction), "Account does not exist.");
+    }
+
+    @Test
+    void getBlockedAccountWhenDeposit() {
+        Account account = new Account();
+        account.setId(1L);
+        account.setBalance(11000.0);
+        account.setBlocked(true);
+
+        Transaction transaction = new Transaction();
+        transaction.setAmount(1000.0);
+        transaction.setAccount(account);
+
+        when(accountRepository.getReferenceById(Mockito.anyLong())).thenReturn(account);
+        when(accountRepository.findById(Mockito.anyLong())).thenReturn(java.util.Optional.of(account));
+
+        Assertions.assertThrowsExactly(ExceptionMessage.class, () -> transactionService.deposit(transaction), "Account is blocked.");
+    }
+
+    @Test
+    void getSuccessWhenWithdraw() {
+        Account account = new Account();
+        account.setId(1L);
+        account.setBalance(11000.0);
+
+        Transaction transaction = new Transaction();
+        transaction.setAmount(100.0);
+        transaction.setAccount(account);
+
+        when(accountRepository.getReferenceById(Mockito.anyLong())).thenReturn(account);
+        when(accountRepository.findById(Mockito.anyLong())).thenReturn(java.util.Optional.of(account));
+        when(transactionRepository.save(Mockito.any(Transaction.class))).thenReturn(transaction);
+
+        Assertions.assertDoesNotThrow(() -> transactionService.withdraw(transaction));
+    }
+
+    @Test
+    void getNonExistingAccountWhenWithdraw() {
+        Account account = new Account();
+        account.setId(1L);
+        account.setBalance(11000.0);
+
+        Transaction transaction = new Transaction();
+        transaction.setAmount(100.0);
+        transaction.setAccount(account);
+
+        when(accountRepository.getReferenceById(Mockito.anyLong())).thenReturn(account);
+        when(accountRepository.findById(Mockito.anyLong())).thenReturn(java.util.Optional.empty());
+
+        Assertions.assertThrowsExactly(ExceptionMessage.class, () -> transactionService.withdraw(transaction), "Account does not exist.");
+    }
+
+    @Test
+    void getBlockedAccountWhenWithdraw() {
+        Account account = new Account();
+        account.setId(1L);
+        account.setBalance(11000.0);
+        account.setBlocked(true);
+
+        Transaction transaction = new Transaction();
+        transaction.setAmount(100.0);
+        transaction.setAccount(account);
+
+        when(accountRepository.getReferenceById(Mockito.anyLong())).thenReturn(account);
+        when(accountRepository.findById(Mockito.anyLong())).thenReturn(java.util.Optional.of(account));
+
+        Assertions.assertThrowsExactly(ExceptionMessage.class, () -> transactionService.withdraw(transaction), "Account is blocked.");
+    }
+
+    @Test
+    void getInsufficientFoundsWhenWithdraw() {
+        Account account = new Account();
+        account.setId(1L);
+        account.setBalance(11000.0);
+
+        Transaction transaction = new Transaction();
+        transaction.setAmount(100000.0);
+        transaction.setAccount(account);
+
+        when(accountRepository.getReferenceById(Mockito.anyLong())).thenReturn(account);
+        when(accountRepository.findById(Mockito.anyLong())).thenReturn(java.util.Optional.of(account));
+
+        Assertions.assertThrowsExactly(ExceptionMessage.class, () -> transactionService.withdraw(transaction), "Insufficient funds.");
+    }
+
+    @Test
     void getSuccessWhenGettingStatement() {
         Account account = mock(Account.class);
         Transaction transaction1 = mock(Transaction.class);
@@ -59,6 +176,4 @@ class TransactionServiceImplTests {
 
         Assertions.assertThrowsExactly(ExceptionMessage.class, () -> transactionService.statement(Mockito.anyLong()), "Account does not exist.");
     }
-
-
 }
