@@ -43,7 +43,7 @@ public class PersonController {
     public ResponseEntity<PersonResponse> post(@Valid @RequestBody PersonRequest personRequest) throws ExceptionMessage {
 
         Person person = modelMapper.map(personRequest, Person.class);
-        Person creation = personService.personCreation(person);
+        Person creation = personService.createPerson(person);
         PersonResponse personResponse = modelMapper.map(creation, PersonResponse.class);
         return new ResponseEntity<>(personResponse, (creation != null ? HttpStatus.OK : HttpStatus.NOT_FOUND));
     }

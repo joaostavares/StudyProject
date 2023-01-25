@@ -10,5 +10,5 @@ public interface PersonService {
 
     Person getPersonById(long id);
 
-    Person personCreation(Person person) throws ExceptionMessage;
+    Person createPerson(Person person) throws ExceptionMessage;
 }

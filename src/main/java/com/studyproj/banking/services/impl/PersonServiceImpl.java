@@ -33,7 +33,7 @@ public class PersonServiceImpl implements PersonService {
         return person.orElse(null);
     }
 
-    public Person personCreation(Person person) {
+    public Person createPerson(Person person) {
         Account account = person.getAccount();
         if (nonNull(personRepository.findByAccountId(account.getId()))) {
             throw new ExceptionMessage("This account already contains personal data");

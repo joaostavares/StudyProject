@@ -1,4 +1,3 @@
-### [Automated tests are being developed and are on the dev branch] <br>
 <div>
   <p>
     <img src= "https://img.shields.io/badge/spring-%236DB33F.svg?style=for-the-badge&logo=spring&logoColor=white" alt="Spring"/>
@@ -8,7 +7,7 @@
 
 # Banking API 
 
-A simple Spring Boot project of a simple banking api <br>
+A simple Spring Boot project of a simple banking API <br>
 
 Project executed to study Spring Boot and the creation of API'S REST <br>
 
@@ -36,6 +35,7 @@ Project executed to study Spring Boot and the creation of API'S REST <br>
 After cloning the project, access the project through the IDE and run it.
 
 Import Postman presets on `Bank Project.postman_collection.json` and use pre-made requests.<br>
+(Modify path in postman if you change default port)<br>
 <br>**OR**<br>
 <br>Open `localhost:8080/swagger` to check all possible requests.<br><br>
 
@@ -47,9 +47,7 @@ Import Postman presets on `Bank Project.postman_collection.json` and use pre-mad
 ```json
 {
   "balance" : 10,
-  "flagged" : 0,
-  "accountType" : 1,
-  "creationDate" : "31-12-1998"
+  "accountType" : 1
 }
 ```
 ### Additional Information: <br>

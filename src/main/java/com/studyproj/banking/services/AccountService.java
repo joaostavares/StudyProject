@@ -14,5 +14,5 @@ public interface AccountService {
 
     Account unblockAccount(long id);
 
-    Boolean getActivity(long id);
+    Boolean getBlockedStatus(long id);
 }
