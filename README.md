@@ -35,6 +35,7 @@ Project executed to study Spring Boot and the creation of API'S REST <br>
 After cloning the project, access the project through the IDE and run it.
 
 Import Postman presets on `Bank Project.postman_collection.json` and use pre-made requests.<br>
+(Modify path in postman if you change default port)<br>
 <br>**OR**<br>
 <br>Open `localhost:8080/swagger` to check all possible requests.<br><br>
 
