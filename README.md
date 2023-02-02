@@ -64,3 +64,5 @@ You can check what is in the `bankingdb` database while executing project, acces
 <br>All of these properties can be changed in `resources/application.properties` <br>
 
 ##### Database will run in memory, so it will be deleted when the project stop running. 
+
+##### I chose the H2 database for the simplicity of running the project with a simple clone, without the need for MySQl Server or another DB driver
