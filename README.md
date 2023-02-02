@@ -23,7 +23,7 @@ Project executed to study Spring Boot and the creation of API'S REST <br>
 
 ## Requirements: <br>
 
-* JDK 17
+* JDK 17 (LTS)
 * Maven 3.8.1
 * MySQL Server 8.0
 * An IDE *( I used Intellij IDEA Ultimate )*
