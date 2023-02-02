@@ -25,6 +25,7 @@ Project executed to study Spring Boot and the creation of API'S REST <br>
 
 * JDK 19
 * Maven 3.8.1
+* MySQL Server 8.0
 * An IDE *( I used Intellij IDEA )*
 * Postman Api Platform *( You can use Insomnia, or any other API testing tool)*
 <br> <br>
@@ -32,7 +33,11 @@ Project executed to study Spring Boot and the creation of API'S REST <br>
 
 ## Instructions: <br>
 
-After cloning the project, access the project through the IDE and run it.
+After cloning the project, access the project through the IDE.
+
+Open the `application.properties` file located in `src/main/resources` and change the properties to your MySQL username and password.
+
+*If you are not using the default MySQL port, also change the port in the datasource url.* <br>
 
 Import Postman presets on `Bank Project.postman_collection.json` and use pre-made requests.<br>
 (Modify path in postman if you change default port)<br>
@@ -50,19 +55,3 @@ Import Postman presets on `Bank Project.postman_collection.json` and use pre-mad
   "accountType" : 1
 }
 ```
-### Additional Information: <br>
-
-You can check what is in the `bankingdb` database while executing project, accessing `localhost:8080/h2` and using these properties: <br> <br>
-
-| *Property* |        *Value*        |
-|:----------:|:---------------------:|
-|  JDBC URL  | jdbc:h2:mem:bankingdb |
-|  Username  |         root          |
-|  Password  |      PassCode98#      |
-
-
-<br>All of these properties can be changed in `resources/application.properties` <br>
-
-##### Database will run in memory, so it will be deleted when the project stop running. 
-
-##### I chose the H2 database for the simplicity of running the project with a simple clone, without the need for MySQl Server or another DB driver
