@@ -35,9 +35,10 @@ Project executed to study Spring Boot and the creation of API'S REST <br>
 
 After cloning the project, access the project through the IDE.
 
-Open the `application.properties` file located in `src/main/resources` and change the properties to your MySQL username and password.
+Open the `application.properties` file located in `src/main/resources` and change the properties to your MySQL username and password *(and datasource url if you change MySQL default port.)*
 
-*If you are not using the default MySQL port, also change the port in the datasource url.* <br>
+**It is not necessary to create the database manually, if it does not exist, it will be created on the first run.** <br>
+
 
 Import Postman presets on `Bank Project.postman_collection.json` and use pre-made requests.<br>
 (Modify path in postman if you change default port)<br>
