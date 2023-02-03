@@ -20,8 +20,30 @@ Project executed to study Spring Boot and the creation of API'S REST <br>
 * Implement path that performs the blocking of an account;
 * Implement path that retrieves the transaction statement from an account;
 
+## Running through `.jar`
 
 ## Requirements: <br>
+
+* JDK 17 (or newer)
+* MySQL Server 8.0
+* Postman Api Platform *( You can use Insomnia, or any other API testing tool)*
+<br> <br>
+
+
+## Execution: <br>
+
+Download the latest `.jar` version from the releases tab and the latest Postman collection.
+
+Run with the command: <br>
+`java -jar BankingAPI-2.0.jar --spring.datasource.username=*YourMySQLUsername* --spring.datasource.password=*YourMySQLPassword*` <br>
+( *Always changing username and password to the ones set in your MySQL Server* )
+
+and use Postman presets to request **OR** open `localhost:8080/swagger` to see all requests
+
+
+## Running through IDE
+
+### Requirements: <br>
 
 * JDK 17 (LTS)
 * Maven 3.8.1
@@ -31,7 +53,7 @@ Project executed to study Spring Boot and the creation of API'S REST <br>
 <br> <br>
 
 
-## Instructions: <br>
+### Execution: <br>
 
 After cloning the project, access the project through the IDE.
 
