@@ -22,7 +22,7 @@ Project executed to study Spring Boot and the creation of API'S REST <br>
 
 ## Running through `.jar`
 
-## Requirements: <br>
+### Requirements: <br>
 
 * JDK 17 (or newer)
 * MySQL Server 8.0
@@ -30,7 +30,7 @@ Project executed to study Spring Boot and the creation of API'S REST <br>
 <br> <br>
 
 
-## Execution: <br>
+### Execution: <br>
 
 Download the latest `.jar` version from the releases tab and the latest Postman collection.
 
@@ -38,7 +38,7 @@ Run with the command: <br>
 `java -jar BankingAPI-2.0.jar --spring.datasource.username=*YourMySQLUsername* --spring.datasource.password=*YourMySQLPassword*` <br>
 ( *Always changing username and password to the ones set in your MySQL Server* )
 
-and use Postman presets to request **OR** open `localhost:8080/swagger` to see all requests
+and use Postman presets to request <br> <br> **OR** <br> <br> open `localhost:8080/swagger` to see all requests
 
 
 ## Running through IDE
