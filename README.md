@@ -25,31 +25,30 @@ Project executed to study Spring Boot and the creation of API'S REST <br>
 ### Requirements: <br>
 
 * JDK 17 (or newer)
-* MySQL Server 8.0
 * Postman Api Platform *( You can use Insomnia, or any other API testing tool)*
 <br> <br>
 
 
 ### Execution: <br>
 
-Download the latest `.jar` version from the releases tab and the latest Postman collection.
+Download the latest `.jar` version from the releases tab and the latest Postman collection. <br>
 
-Run with the command: <br>
-`java -jar BankingAPI-2.0.jar --spring.datasource.username=*YourMySQLUsername* --spring.datasource.password=*YourMySQLPassword*` <br>
-( *Always changing username and password to the ones set in your MySQL Server* )
+Run with the `java -jar` command, passing the path to the `.jar` file as a parameter.
 
-and use Postman presets to request <br> <br> **OR** <br> <br> open `localhost:8080/swagger` to see all requests
+and use Postman presets on to request `Bank Project.postman_collection.json` <br>
+**OR**  
+open `localhost:8080/swagger` to see all requests
 
 
 ## Running through IDE
 
 ### Requirements: <br>
 
-* JDK 17 (LTS)
+* JDK 17 (or newer)
 * Maven 3.8.1
-* MySQL Server 8.0
 * An IDE *( I used Intellij IDEA Ultimate )*
 * Postman Api Platform *( You can use Insomnia, or any other API testing tool)*
+* MySQL Server 8.0 (if you want to run in MySQL)
 <br> <br>
 
 
@@ -57,17 +56,20 @@ and use Postman presets to request <br> <br> **OR** <br> <br> open `localhost:80
 
 After cloning the project, access the project through the IDE.
 
-Open the `application.properties` file located in `src/main/resources` and change the properties to your MySQL username and password *(and datasource url if you change MySQL default port.)*
+Set Vm options to: <br>
+`-Dspring.profiles.active=release` -> to run in H2 Database. <br>
+`-Dspring.profiles.active=dev` -> to run in MySQL Database. <br>
 
-**It is not necessary to create the database manually, if it does not exist, it will be created on the first run.** <br>
+If you choose MySQL, change the db parameters in `application-dev.yaml` according to your settings <br>
+
+**MySQL creates the database automatically if it doesn't exist** <br>
 
 
-Import Postman presets on `Bank Project.postman_collection.json` and use pre-made requests.<br>
-(Modify path in postman if you change default port)<br>
+Import Postman presets on `Bank Project.postman_collection.json` and use pre-made requests.
 <br>**OR**<br>
-<br>Open `localhost:8080/swagger` to check all possible requests.<br><br>
+Open `localhost:8080/swagger` to check all possible requests.<br>
 
-### Here's an example of a request to create an account:
+### Example of a request to create an account:
 
 <br>Post request to `localhost:8080/account` with JSON body: <br>
 
