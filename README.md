@@ -31,7 +31,7 @@ Project executed to study Spring Boot and the creation of API'S REST <br>
 
 ### Execution: <br>
 
-Download the latest `.jar` version from the releases tab and the latest Postman collection. <br>
+Download the latest version of `BankingAPI.zip` from the releases tab which already contains the Postman Collection and latest `.jar` . <br>
 
 Run with the `java -jar` command, passing the path to the `.jar` file as a parameter.
 
