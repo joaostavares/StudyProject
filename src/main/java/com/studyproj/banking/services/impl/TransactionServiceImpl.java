@@ -58,6 +58,9 @@ public class TransactionServiceImpl implements TransactionService {
         if(account.getBalance() < transaction.getAmount()) {
             throw new ExceptionMessage("Insufficient funds.");
         }
+        if(transaction.getAmount() < 10.0) {
+            throw new ExceptionMessage("Minimum amount to withdraw is 10.");
+        }
         transaction.setOldBalance(account.getBalance());
         account.setBalance(account.getBalance() - transaction.getAmount());
         transaction.setNewBalance(account.getBalance());
