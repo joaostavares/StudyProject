@@ -50,29 +50,24 @@ public class AccountController {
     @GetMapping("/balance/{id}")
     public ResponseEntity<Double> saldo(@PathVariable long id) {
         Account account = accountService.getAccount(id);
-        if (account != null) {
-            return new ResponseEntity<>(account.getBalance(), HttpStatus.OK);
-        }
-        else {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
+        return account != null ? new ResponseEntity<>(account.getBalance(), HttpStatus.OK) : new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
     @PutMapping(value = "/block/{id}")
-    public ResponseEntity<HttpStatus> block(@PathVariable long id) {
-        Account blockAccount = accountService.blockAccount(id);
-        return new ResponseEntity<>(blockAccount != null ? HttpStatus.OK : HttpStatus.NOT_FOUND);
+    public ResponseEntity<String> block(@PathVariable long id) {
+        String blockAccount = accountService.blockAccount(id);
+        return new ResponseEntity<>(blockAccount, blockAccount != null ? HttpStatus.OK : HttpStatus.NOT_FOUND);
     }
 
     @PutMapping(value = "/unblock/{id}")
-    public ResponseEntity<HttpStatus> unblock(@PathVariable long id) {
-        Account unblockAccount = accountService.unblockAccount(id);
-        return new ResponseEntity<>(unblockAccount != null ? HttpStatus.OK : HttpStatus.NOT_FOUND);
+    public ResponseEntity<String> unblock(@PathVariable long id) {
+        String unblockAccount = accountService.unblockAccount(id);
+        return new ResponseEntity<>(unblockAccount, unblockAccount != null ? HttpStatus.OK : HttpStatus.NOT_FOUND);
     }
 
     @GetMapping("/isblocked/{id}")
-    public ResponseEntity<Boolean> activityCheck(@PathVariable long id) {
-        Boolean activity = accountService.getBlockedStatus(id);
+    public ResponseEntity<String> activityCheck(@PathVariable long id) {
+        String activity = accountService.getBlockedStatus(id);
         return new ResponseEntity<>(activity, activity != null ? HttpStatus.OK : HttpStatus.NOT_FOUND);
 
     }

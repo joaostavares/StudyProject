@@ -48,22 +48,12 @@ open `localhost:8080/swagger` to see all requests
 * Maven 3.8.1
 * An IDE *( I used Intellij IDEA Ultimate )*
 * Postman Api Platform *( You can use Insomnia, or any other API testing tool)*
-* MySQL Server 8.0 (if you want to run in MySQL)
 <br> <br>
 
 
 ### Execution: <br>
 
-After cloning the project, access the project through the IDE.
-
-Set Vm options to: <br>
-`-Dspring.profiles.active=release` -> to run in H2 Database. <br>
-`-Dspring.profiles.active=dev` -> to run in MySQL Database. <br>
-
-If you choose MySQL, change the db parameters in `application-dev.yaml` according to your settings <br>
-
-**MySQL creates the database automatically if it doesn't exist** <br>
-
+After cloning the project, access and run the project through the IDE.
 
 Import Postman presets on `Bank Project.postman_collection.json` and use pre-made requests.
 <br>**OR**<br>
