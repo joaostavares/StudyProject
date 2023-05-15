@@ -10,9 +10,9 @@ public interface AccountService {
 
     Account createAccount(Account account);
 
-    Account blockAccount(long id);
+    String blockAccount(long id);
 
-    Account unblockAccount(long id);
+    String unblockAccount(long id);
 
-    Boolean getBlockedStatus(long id);
+    String getBlockedStatus(long id);
 }
