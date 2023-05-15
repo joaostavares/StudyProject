@@ -112,28 +112,6 @@
 		</dependency>
 	</dependencies>
 
-	<profiles>
-		<profile>
-			<id>dev</id>
-			<properties>
-				<activatedProperties>dev</activatedProperties>
-			</properties>
-			<build>
-				<directory>${project.basedir}/target/dev</directory>
-			</build>
-		</profile>
-
-		<profile>
-			<id>release</id>
-			<properties>
-				<activatedProperties>release</activatedProperties>
-			</properties>
-			<build>
-				<directory>${project.basedir}/target/release</directory>
-			</build>
-		</profile>
-	</profiles>
-
 	<build>
 		<plugins>
 			<plugin>
