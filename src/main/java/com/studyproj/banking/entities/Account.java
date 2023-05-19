@@ -6,7 +6,6 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.NonNull;
 
 import java.time.LocalDate;
 
@@ -22,19 +21,15 @@ public class Account {
     private Long id;
 
     @Schema(description = "Account balance", example = "1000.00")
-    @NonNull
     private double balance;
 
     @Schema(description = "Account status", example = "true")
-    @NonNull
     private boolean blocked;
 
     @Schema(description = "Account type", example = "1")
-    @NonNull
     private int accountType;
 
     @Schema(description = "Account creation date", pattern = "dd-MM-yyyy")
-    @NonNull
     private LocalDate creationDate;
 
     @OneToOne(mappedBy = "account", cascade = CascadeType.ALL)

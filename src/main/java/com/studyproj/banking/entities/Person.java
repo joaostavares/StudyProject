@@ -6,7 +6,6 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.NonNull;
 
 import java.time.LocalDate;
 
@@ -18,22 +17,19 @@ import java.time.LocalDate;
 public class Person {
     @Schema(description = "Person ID generated automatically", example = "1")
     @Id
-    @NonNull
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     @Schema(description = "Person name", example = "Jão")
-    @NonNull
     private String name;
 
     @Schema(description = "Person CPF", example = "123.456.789-00")
-    @NonNull
     private String cpf;
 
     @Schema(description = "Person birth date", pattern = "dd-MM-yyyy")
-    @NonNull
     private LocalDate birthDate;
 
+    @SuppressWarnings ("JpaDataSourceORMInspection")
     @OneToOne
     @JoinColumn(name = "idAccount", referencedColumnName = "id")
     @JsonManagedReference

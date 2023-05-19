@@ -2,9 +2,10 @@ package com.studyproj.banking.dtos.requests;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.validation.constraints.DecimalMin;
+import jakarta.validation.constraints.Min;
 import lombok.Getter;
 import lombok.Setter;
-import jakarta.validation.constraints.*;
 
 @Schema(name = "Transaction Request DTO", description = "Transaction Request DTO Model")
 @Getter
