@@ -40,27 +40,27 @@ public class AccountServiceImpl implements AccountService {
     public String blockAccount(long id) {
         Account account = getAccount(id);
         if (isNull(account)) {
-            throw new ExceptionMessage("Account not found");
+            throw new ExceptionMessage("The account does not exist.");
         }
         if (account.isBlocked()) {
             throw new ExceptionMessage("Account already blocked");
         }
         account.setBlocked(true);
         accountRepository.save(account);
-        return "Account " + account.getId() + " is now blocked";
+        return "The account with id " + account.getId() + " is now blocked";
     }
 
     public String unblockAccount(long id) {
         Account account = getAccount(id);
         if (isNull(account)) {
-            throw new ExceptionMessage("Account not found");
+            throw new ExceptionMessage("The account does not exist.");
         }
         if (!account.isBlocked()) {
             throw new ExceptionMessage("Account already unblocked");
         }
         account.setBlocked(false);
         accountRepository.save(account);
-        return "Account " + account.getId() + " is now unblocked";
+        return "The account with id " + account.getId() + " is now unblocked";
     }
 
     public String getBlockedStatus(long id) {
@@ -68,7 +68,7 @@ public class AccountServiceImpl implements AccountService {
         if (isNull(account)) {
             throw new ExceptionMessage("The account does not exist.");
         }
-        return account.isBlocked() ? "Account " + account.getId() + " is blocked" : "Account " + account.getId() + " is unblocked";
+        return account.isBlocked() ? "The account with id " + account.getId() + " is blocked" : "The account with id " + account.getId() + " is unblocked";
     }
 }
 

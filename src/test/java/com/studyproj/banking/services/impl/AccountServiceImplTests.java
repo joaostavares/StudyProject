@@ -62,7 +62,7 @@ class AccountServiceImplTests {
 
         when(accountRepository.findById(Mockito.anyLong())).thenReturn(java.util.Optional.of(account));
 
-        Assertions.assertEquals("Account " + account.getId() + " is now blocked", accountService.blockAccount(Mockito.anyLong()));
+        Assertions.assertEquals("The account with id " + account.getId() + " is now blocked", accountService.blockAccount(Mockito.anyLong()));
     }
 
     @Test
@@ -91,7 +91,7 @@ class AccountServiceImplTests {
 
         when(accountRepository.findById(account.getId())).thenReturn(java.util.Optional.of(account));
 
-        Assertions.assertEquals("Account " + account.getId() + " is now unblocked", accountService.unblockAccount(account.getId()));
+        Assertions.assertEquals("The account with id " + account.getId() + " is now unblocked", accountService.unblockAccount(account.getId()));
     }
 
     @Test
@@ -120,7 +120,7 @@ class AccountServiceImplTests {
 
         when(accountRepository.findById(account.getId())).thenReturn(java.util.Optional.of(account));
 
-        Assertions.assertEquals("Account " + account.getId() + " is unblocked", accountService.getBlockedStatus(account.getId()));
+        Assertions.assertEquals("The account with id " + account.getId() + " is unblocked", accountService.getBlockedStatus(account.getId()));
     }
 
     @Test
@@ -131,7 +131,7 @@ class AccountServiceImplTests {
 
         when(accountRepository.findById(account.getId())).thenReturn(java.util.Optional.of(account));
 
-        Assertions.assertEquals("Account " + account.getId() + " is blocked", accountService.getBlockedStatus(account.getId()));
+        Assertions.assertEquals("The account with id " + account.getId() + " is blocked", accountService.getBlockedStatus(account.getId()));
     }
 
     @Test
