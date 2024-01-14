@@ -9,16 +9,16 @@ import com.studyproj.banking.services.AccountService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mockito;
-import org.mockito.junit.MockitoJUnitRunner;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.List;
 
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-@RunWith(MockitoJUnitRunner.class)
+@ExtendWith(MockitoExtension.class)
 class PersonServiceImplTests {
 
     private PersonServiceImpl personService;
@@ -67,7 +67,6 @@ class PersonServiceImplTests {
 
         when(personRepository.findByAccountId(Mockito.anyLong())).thenReturn(null);
         when(accountRepository.findById(account.getId())).thenReturn(java.util.Optional.of(account));
-        when(personRepository.findByCpf(Mockito.anyString())).thenReturn(null);
 
         Assertions.assertDoesNotThrow(() -> personService.createPerson(person));
     }
@@ -80,8 +79,6 @@ class PersonServiceImplTests {
         person.setAccount(account);
 
         when(personRepository.findByAccountId(Mockito.anyLong())).thenReturn(mock(Person.class));
-        when(accountRepository.findById(Mockito.anyLong())).thenReturn(java.util.Optional.of(account));
-        when(personRepository.findByCpf(Mockito.anyString())).thenReturn(null);
 
         Assertions.assertThrowsExactly(ExceptionMessage.class, () -> personService.createPerson(person), "This account already contains personal data");
 
@@ -95,8 +92,6 @@ class PersonServiceImplTests {
         person.setAccount(account);
 
         when(personRepository.findByAccountId(Mockito.anyLong())).thenReturn(mock(Person.class));
-        when(accountRepository.findById(Mockito.anyLong())).thenReturn(java.util.Optional.empty());
-        when(personRepository.findByCpf(Mockito.anyString())).thenReturn(null);
 
         Assertions.assertThrowsExactly(ExceptionMessage.class, () -> personService.createPerson(person), "Account does not exist.");
 
